@@ -1,0 +1,25 @@
+{{#section 'title'}}
+	Edit Category
+{{/section}}
+
+{{#with Category}}
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">#</label>
+		<input type="text" class="form-control" id="" name="CatId" value="{{CatID}}" readonly>
+	</div>
+	<div class="form-group">
+		<label for="">Category Name</label>
+		<input type="text" class="form-control" id="" name="CatName" value="{{CatName}}">
+	</div>
+
+	<a class="btn btn-default" href="/category" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		View List
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-save"></span>
+		Update
+	</button>
+</form>
+{{/with}}

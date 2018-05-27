@@ -1,0 +1,213 @@
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/itemSlider/css/main-style.css"> 
+{{/section}} 
+
+{{#section 'js'}}
+	<script src="/itemSlider/js/modernizr.custom.63321.js"></script>
+	<script src="/itemSlider/js/jquery.catslider.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#mi-slider').catslider();
+		});
+	</script> 
+{{/section}}
+
+<div class="row">
+	<div class="col">
+		<div class="main box-border">
+			<div id="mi-slider" class="mi-slider">
+				<ul>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/1.jpg" alt="img01">
+							<h4>Ba lô Seliux</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/2.jpg" alt="img02">
+							<h4>Ba lô Mikkor</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/3.jpg" alt="img03">
+							<h4>Ba lô Targus</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/4.jpg" alt="img04">
+							<h4>Ba lô SimpleCarry</h4>
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/5.jpg" alt="img05">
+							<h4>Túi xách Mikkor</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/6.jpg" alt="img06">
+							<h4>Túi xách Targus</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/7.png" alt="img07">
+							<h4>Túi xách Seliux</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/8.jpg" alt="img08">
+							<h4>Túi xách SimpleCarry</h4>
+						</a>
+					</li>
+				</ul>
+				<nav>
+					{{#each layoutVM.categories}}
+					<a href="#">{{CatName}}</a>
+					{{/each}}
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<div>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active" aria-current="page">
+					<a href="#" class="text-primary">Mới nhất</a>
+				</li>
+			</ol>
+		</div>
+		<div class="row">
+			{{#each newestProducts}}
+			<div class="col-md-3 col-sm-4 pb-3">
+				<div class="card text-left product-box">
+					<a href="#">
+						<img class="img-fluid" src="/img/seliux-m5-grant-s-navy.jpg">
+					</a>
+					<div class="card-body">
+						<h5 class="card-title">
+							<a href="#">{{ProName}}</a>
+						</h5>
+						<p class="card-text mb-0">
+							<span class="font-weight-bold">{{number_format Price}}
+								<u>đ</u>
+							</span>
+							{{!-- <small class="font-weight-light">
+								<del>589,000&nbsp;
+									<u>đ</u>
+								</del>
+							</small>
+							<span class="sale-tag">-49%</span> --}}
+						</p>
+						<p class="mb-0">
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star rating"></span>
+						</p>
+						<a href="#" class="btn btn-outline-success btn-sm mr-1" role="button">Mua Ngay</a>
+						<a href="#" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		<div>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active" aria-current="page">
+					<a href="#" class="text-success">Xem nhiều nhất</a>
+				</li>
+			</ol>
+		</div>
+		<div class="row">
+			{{#each viewerProducts}}
+			<div class="col-md-3 col-sm-4 pb-3">
+				<div class="card text-left product-box">
+					<a href="#">
+						<img class="img-fluid" src="/img/seliux-m5-grant-s-navy.jpg">
+					</a>
+					<div class="card-body">
+						<h5 class="card-title">
+							<a href="#">{{ProName}}</a>
+						</h5>
+						<p class="card-text mb-0">
+							<span class="font-weight-bold">{{number_format Price}}
+								<u>đ</u>
+							</span>
+							{{!-- <small class="font-weight-light">
+								<del>589,000&nbsp;
+									<u>đ</u>
+								</del>
+							</small>
+							<span class="sale-tag">-49%</span> --}}
+						</p>
+						<p class="mb-0">
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star rating"></span>
+						</p>
+						<a href="#" class="btn btn-outline-success btn-sm mr-1" role="button">Mua Ngay</a>
+						<a href="#" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		<div>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active" aria-current="page">
+					<a href="#" class="text-info">Bán chạy nhất</a>
+				</li>
+			</ol>
+		</div>
+		<div class="row">
+			{{#each soldProducts}}
+			<div class="col-md-3 col-sm-4 pb-3">
+				<div class="card text-left product-box">
+					<a href="#">
+						<img class="img-fluid" src="/img/seliux-m5-grant-s-navy.jpg">
+					</a>
+					<div class="card-body">
+						<h5 class="card-title">
+							<a href="#">{{ProName}}</a>
+						</h5>
+						<p class="card-text mb-0">
+							<span class="font-weight-bold">{{number_format Price}}
+								<u>đ</u>
+							</span>
+							{{!-- <small class="font-weight-light">
+								<del>589,000&nbsp;
+									<u>đ</u>
+								</del>
+							</small>
+							<span class="sale-tag">-49%</span> --}}
+						</p>
+						<p class="mb-0">
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star checked rating"></span>
+							<span class="fa fa-star rating"></span>
+						</p>
+						<a href="#" class="btn btn-outline-success btn-sm mr-1" role="button">Mua Ngay</a>
+						<a href="#" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

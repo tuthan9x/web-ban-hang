@@ -1,0 +1,41 @@
+{{#section 'title'}}
+	Categoriess
+{{/section}}
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th class="col-md-1">#</th>
+			<th>name</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each categories}}
+		<tr>
+			<td>{{CatID}}</td>
+			<td>{{CatName}}</td>
+			<td class="text-right">
+				<a class="btn btn-danger btn-xs" href="/category/delete?id={{CatID}}" role="button">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
+				<a class="btn btn-primary btn-xs" href="/category/edit?id={{CatID}}" role="button">
+					<span class="glyphicon glyphicon-wrench"></span>
+				</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<a class="btn btn-large btn-block btn-primary" href="/category/add" role="button">
+	<span class="glyphicon glyphicon-plus"></span>
+	Thêm danh mục mới
+</a>
+
+
+
+
+
+
+
+

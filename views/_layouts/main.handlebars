@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Shop Ba lô, Túi xách</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/style.css">
+    {{{_sections.css}}}
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark justify-content-between" style="background-color: #02a8f3;">
+            <a class="navbar-brand" href=".">Shop Pohs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsiveContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsiveContent">
+                <form class="form-inline ml-auto" action="./search.html">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Track Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Login</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Signup</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarSupport" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            24/7 Support
+                            <b class="caret"></b>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarSupport">
+                            <a class="dropdown-item" href="#">
+                                <strong>Call: </strong>0123 456 789</a>
+                            </a>
+                            <a class="dropdown-item" href="mailto:bestShopEver@bestshop.com">
+                                <strong>Mail: </strong>shopPohs@shopposh.com</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://goo.gl/maps/qyHMFh1LzGo" target="_blank">
+                                <strong>Address: </strong>
+                                <div>
+                                    Hồ Chí Minh, Việt Nam
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark justify-content-between mb-2 pb-0" style="background-color: #02a8f3;">
+            <nav class="dropdown mr-custom">
+                <button class="btn btn-dropdown text-dropdown px-0" type="button" id="listItemDropdown" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+                    DANH MỤC SẢN PHẨM
+                </button>
+                <div class="dropdown-menu" aria-labelledby="listItemDropdown">
+                    <ul>
+                        {{#each layoutVM.categories}}
+                        <li>
+                            <a class="dropdown-item dropdown-list-item" href="/product/byCat/{{CatID}}">
+                                <span class="text-dropdown">{{CatName}}</span>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </nav>
+            <nav class="dropdown mr-custom">
+                <button class="btn btn-dropdown text-dropdown px-0" type="button" id="listItemDropdown" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                    Thương hiệu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="listItemDropdown">
+                    <ul>
+                        {{#each layoutVM.brands}}
+                        <li>
+                            <a class="dropdown-item dropdown-list-item" href="/product/byBrand/{{BrandID}}">
+                                <span class="text-dropdown">{{BrandName}}</span>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </nav>
+            <button class="btn btn-dropdown text-dropdown px-0 mr-custom" type="button">
+                <i class="fa fa-check-square-o fa-lg" aria-hidden="true"></i>
+                100% Chính hãng
+            </button>
+            <button class="btn btn-dropdown text-dropdown px-0 mr-custom" type="button">
+                <i class="fa fa-hourglass-half fa-lg" aria-hidden="true"></i>
+                Giao hàng chớp nhoáng
+            </button>
+            <button class="btn btn-dropdown text-dropdown px-0 mr-custom" type="button">
+                <i class="fa fa-undo fa-lg" aria-hidden="true"></i>
+                30 Ngày đổi trả dễ dàng
+            </button>
+            <button class="btn btn-dropdown text-dropdown px-0 ml-auto" type="button">
+                <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                Tìm cửa hàng trên toàn quốc
+            </button>
+        </nav>
+    </div>
+
+    <div class="container">
+        {{{body}}}
+    </div>
+
+
+    <!--Footer -->
+    <div class="col-md-12 footer-box">
+        <div class="row small-box ">
+            <strong>Ba lô:&nbsp;</strong>&nbsp;
+            <a href="#">seliux</a>&nbsp;/&nbsp;
+            <a href="#">Targus</a>&nbsp;/&nbsp;
+            <a href="#">SimpleCarry</a>&nbsp;/&nbsp;
+            <a href="#">Mikkor</a>&nbsp;/&nbsp;view all items
+        </div>
+        <div class="row small-box pad-bottom">
+            <strong>Túi xách:&nbsp;</strong>&nbsp;
+            <a href="#">seliux</a>&nbsp;/&nbsp;
+            <a href="#">Targus</a>&nbsp;/&nbsp;
+            <a href="#">Mikkor</a>&nbsp;/&nbsp;
+            <a href="#">SimpleCarry</a>&nbsp;/&nbsp;view all items
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Đăng ký Nhận Email </strong>
+                <hr>
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <textarea name="message" id="message" class="form-control" rows="3" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-primary">Đăng ký</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <strong>Liên hệ</strong>
+                <hr>
+                <p>
+                    Hồ Chí Minh, Việt Nam
+                    <br /> Call: 0123 456 789
+                    <br> Email: bestShopEver@bestshop.com
+                    <br>
+                </p>
+
+                <a href="./index.html">bestShopEver.com</a> | All Right Reserved
+            </div>
+            <div class="col-md-4 social-box">
+                <strong>Kết nối với chúng tôi </strong>
+                <hr>
+                <a href="#">
+                    <i class="fa fa-facebook social"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-twitter social"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-youtube social"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-linkedin social"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-google social"></i>
+                </a>
+                <div class="mt-4">
+                    <strong>Tải ngay ứng dụng trên điện thoại</strong>
+                    <br>
+                    <img src="./img/google-play-badge.png" alt="">
+                    <img src="./img/app-store-badge.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 end-box px-4">
+        &copy; bestShopEver | &nbsp; All Rights Reserved | &nbsp; www.bestShopEver.com | &nbsp; 24x7 support | &nbsp; Email us: bestShopEver@bestshop.com
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    {{{_sections.js}}}
+</body>
+
+</html>
