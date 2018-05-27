@@ -48,6 +48,6 @@ app.use('/product', productController);
 
 app.use(handle404MDW);
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('Site running on port 3000');
 });
