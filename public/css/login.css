@@ -1,0 +1,22 @@
+.dangnhap{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 100px;
+}
+
+button.btn.btn-success {
+	padding: 10px 70px 10px 70px;
+	margin-top: 7px;
+}
+
+
+button.btn.btn-primary{
+	padding: 15px 80px 15px 80px;
+	margin-top: 20px;
+}
+
+
+button.btn.btn-danger {
+	padding: 15px 98px 15px 98px;
+	margin-top: 20px;
+}

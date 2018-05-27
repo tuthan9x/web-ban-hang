@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box-border {
+    border: 1px solid #e1e1e1;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.offer-box {
+    background-color: #6A75F0;
+    border: 1px solid #096FC0;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.offer-box a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.offer-box a:hover {
+    color: #000;
+}
+
+.offer-box h5 {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.offer-colors {
+    background-color: #B05FDD;
+    border: 1px solid #A228F3;
+}
+
+.footer-box {
+    background-color: #F5F5F5;
+    padding: 20px 50px 20px 50px;
+}
+
+.small-box {
+    font-size: 10px;
+}
+
+.footer-box a {
+    color: #808080;
+    text-decoration: none;
+}
+
+.footer-box a:hover {
+    color: #000;
+}
+
+.pad-botom {
+    padding-bottom: 30px;
+}
+
+.footer-box p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 25px;
+}
+
+.social-box a {
+    color: #333436;
+    text-decoration: none;
+}
+
+.social {
+    padding: 1rem;
+    font-size: 1.25rem;
+    width: 3.25rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.social:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.end-box {
+    color: #000;
+    /* background-color: #000; */
+    font-size: 1rem;
+}
+
+.alg-right-pad {
+    float: right;
+    padding-right: 1.25rem;
+}
+
+.product-box h5>a, .product-box h5>a:hover, .product-box h5>a:focus {
+    color: #404040;
+    text-decoration: none;
+    outline: 0;
+}
+
+.product-box h5>a:hover {
+    color: #1a9cb7;
+}
+
+.sale-tag {
+    color: #FF3B26;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 0.125rem;
+}
+
+.product-box:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+}
+
+.card {
+    border: none;
+}
+
+.checked {
+    color: orange !important;
+}
+
+.fa-star {
+    color: #b8b8b8;
+}
+
+.btn-dropdown, .btn-dropdown:focus, .btn-dropdown:active {
+    background-color: #02a8f3;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.text-dropdown {
+    font-size: 0.8125rem;
+    letter-spacing: 0.6px;
+    line-height: 1.6875rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.icon-align {
+    width: 1.5rem;
+}
+
+.dropdown-list-item:hover, .dropdown-list-item:active {
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    background: rgb(24, 158, 255);
+    border-color: rgb(24, 158, 255);
+}
+
+.dropdown-menu>ul {
+    display: block;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.sub-dropdown>ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sub-dropdown>ul>li {
+    float: left;
+    width: 50%;
+    display: block;
+    padding-right: 0.75rem;
+}
+.sub-dropdown {
+    display: none;
+    width: 220%;
+    height: 200%;
+}
+
+.dropdown-list-item:hover + .sub-dropdown, .sub-dropdown:hover {
+    display: block;
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: 100%;
+    margin-left: 0px;
+    background-color: #fff;
+}
+
+.sub-dropdown a:hover {
+    color: #007ff0;
+    background-color: #fff;
+}
+
+.custom-size {
+    width: 160%;
+    height: 200%;
+}
+
+.simplecarry {
+    width: 220%;
+    height: 100%;
+}
+
+.seliux {
+    width: 250%;
+    height: 100%;
+}
+
+.mikkor {
+    width: 240%;
+    height: 100%;
+}
+
+.targus {
+    width: 270%;
+    height: 100%;
+}
+
+.mr-custom {
+    margin-right: 4rem;
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1199px) {
+    .hidden {
+        display: none;
+    }
+
+    div > h5 > a {
+        font-size: 1rem;
+    }
+}

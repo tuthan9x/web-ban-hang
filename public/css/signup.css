@@ -1,0 +1,29 @@
+
+
+.dangki{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 100px;
+}
+
+button.btn.btn-success{
+    padding: 4px 150px 4px 150px;
+    margin-top: 7px;
+    margin-left: 58px;
+    margin-bottom: 20px;
+
+}
+
+button.btn.btn-primary{
+	padding: 10px 150px 10px 150px;
+	margin-top: 20px;
+	margin-left: 58px;
+}
+
+
+button.btn.btn-danger {
+	padding: 10px 169px 10px 169px;
+	margin-top: 20px;
+	margin-left: 58px;
+}
+

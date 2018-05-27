@@ -1,0 +1,46 @@
+.menu {
+    position: relative;
+    display: block;
+    list-style: none;
+    border: none;
+    background: 0 0;
+    width: 100%;
+    box-shadow: none;
+    z-index: 1;
+    top: 0%;
+}
+
+.menu li a {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: left;
+    color: #4a4a4a;
+    position: relative;
+    display: block;
+    line-height: 1.42857;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.menu li a:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.container > .row > .col-md-2 {
+    background-color: rgb(241, 241, 241);
+    font-family: Roboto,sans-serif,arial;
+}
+
+.container > .row > .col-md-10 {
+    font-family: Roboto,sans-serif,arial;
+}
+
+body {
+    background-color: rgb(241, 241, 241);
+}
