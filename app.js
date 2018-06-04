@@ -5,12 +5,16 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
 
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
     handle404MDW = require('./middle-wares/handle404');
 
 var homeController = require('./controllers/homeController'),
     categoryController = require('./controllers/categoryController'),
-    productController = require('./controllers/productController');
+    productController = require('./controllers/productController'),
+    accountController = require('./controllers/accountController');
 
 var app = express();
 
@@ -36,6 +40,31 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: 'anhyeuem1997?',
+    database: 'db_banhang',
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
+});
+
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(handleLayoutMDW);
 
 app.get('/', (req, res) => {
@@ -45,6 +74,7 @@ app.get('/', (req, res) => {
 app.use('/home', homeController);
 app.use('/category', categoryController);
 app.use('/product', productController);
+app.use('/account', accountController);
 
 app.use(handle404MDW);
 
