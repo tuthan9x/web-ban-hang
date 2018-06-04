@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kumjShid4/web-ban-hang.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -15,6 +19,9 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-handlebars-sections": "^1.0.1",
+    "express-mysql-session": "^1.3.0",
+    "express-session": "^1.15.6",
+    "moment": "^2.22.1",
     "mysql": "^2.15.0",
     "wnumb": "^1.1.0"
   }
