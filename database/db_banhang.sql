@@ -134,7 +134,85 @@ INSERT INTO `products`
 VALUES
     ( 20, 'Túi Xách Targus TBT268AP-72 M Black', 'Hiện nay, các sản phẩm cặp laptop đang rất được các bạn trẻ như học sinh, sinh viên, nhân viên văn phòng ưa chuộng do tính tiện dụng và kiểu dáng thiết kế hiện đại, lịch sự. nắm bắt xu hướng đó, nhà sản xuất Targus đã cho ra mắt dòng sản phẩm Cặp laptop Targus TBT268AP-72 M Black. Với thiết kế hiện đại và linh hoạt, sản phẩm sẽ là một sự lựa chọn mà bạn không nên bỏ qua', 2024000,100, 450, 80, NOW(), 2, 3);
  
- 
+ INSERT INTO `products`
+VALUES
+	(21, 'Balo Seliux G1 Raptor Backpack M Navy', 'Thương hiệu Seliux mới ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên Seliux G1 Raptor. Balo Seliux G1 Raptor Backpack M Navy được làm từ chất liệu Polyester 1000D kết hợp vải lót 210D Nylon màu xám, trơn mị và hạn chế chống nước tốt. Balo có thiết kế ngăn rộng rãi, thêm phần ngăn Laptop 15''và Tablet.', 529000, 6, 100, 2, NOW(), 1, 1);
+
+INSERT INTO `products`
+VALUES
+	(22, 'Balo Seliux G1 Raptor Backpack M Moss', 'Thương hiệu Seliux mới ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên Seliux G1 Raptor. Balo Seliux G1 Raptor Backpack M Moss được làm từ chất liệu Polyester 1000D kết hợp vải lót 210D Nylon màu xám, trơn mị và hạn chế chống nước tốt. Balo có thiết kế ngăn rộng rãi, thêm phần ngăn Laptop 15''và Tablet.', 529000, 10, 340, 4, NOW(), 1, 1);
+
+INSERT INTO `products`
+VALUES
+	(23, 'Balo Seliux G1 Raptor Backpack M Grey', 'Thương hiệu Seliux mới ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên Seliux G1 Raptor. Balo Seliux G1 Raptor Backpack M Grey được làm từ chất liệu Polyester 1000D kết hợp vải lót 210D Nylon màu xám, trơn mị và hạn chế chống nước tốt. Balo có thiết kế ngăn rộng rãi, thêm phần ngăn Laptop 15''và Tablet.', 529000, 36, 200, 14, NOW(), 1, 1);
+
+INSERT INTO `products`
+VALUES
+	(24,'Balo Seliux G1 Raptor Backpack M Red', 'Thương hiệu Seliux mới ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên Seliux G1 Raptor. Balo Seliux G1 Raptor Backpack M Red được làm từ chất liệu Polyester 1000D kết hợp vải lót 210D Nylon màu xám, trơn mị và hạn chế chống nước tốt. Balo có thiết kế ngăn rộng rãi, thêm phần ngăn Laptop 15" và Tablet.', 529000,50, 500, 35, NOW(), 1, 1);
+
+INSERT INTO `products`
+VALUES
+	(25, 'Balo Seliux M7 Bradley Sling S Blue', 'Seliux M7 Bradley Sling S Blue là dòng sản phẩm balo một quai thời trang của thương hiệu Seliux. Balo đem lại sự tiện lợi và năng động dành cho người sử dụng. Balo được làm từ chất liệu 1000D Chicken Tex hạn chế thấm nước tốt, đệm lưới Air Mesh thoáng khí, quai có thể thay đổi chiều dài và bên đeo (trái hoặc phải)..', 419000, 34, 200, 12, NOW(), 1, 1);
+
+INSERT INTO `products`
+VALUES
+	(26, 'Balo Simplecarry Sling Big M Grey', 'Simplecarry Sling Big M Grey là dòng sản phẩm balo một quai cao cấp, thời trang phù hợp cho Laptop 13''trở xuống. Balo một quai có 4 màu sắc thời trang, thiết kế tiện lợi với dây quai to bản thay đổi chiều dài linh hoạt, ngăn Laptop riêng biệt. Balo một quai Simplecarry Sling Big M được làm từ chất liệu Polyester bền màu, khả năng hạn chế thấm nước tốt.', 539000, 20, 290, 7, NOW(), 1, 2);
+
+INSERT INTO `products`
+VALUES
+	(27, 'Balo Simplecarry H3 M Blue/Navy', 'Một chiếc ba lô luôn là một trong những phụ kiện không thể thiếu trong các hoạt động như đi học hay đi chơi, dã ngoại. Với cách kết hợp màu sắc hài hòa và kiểu dáng thời trang, hiện đại, Simplecarry H3 M Blue/Navy chính là người bạn đồng hành đầy cá tính dành cho bạn.', 749000, 23, 170, 5, NOW(), 1, 2);
+
+INSERT INTO `products`
+VALUES
+	(28, 'Balo Simplecarry H3 M Red/Grey', 'Một chiếc ba lô luôn là một trong những phụ kiện không thể thiếu trong các hoạt động như đi học hay đi chơi, dã ngoại. Với cách kết hợp màu sắc hài hòa và kiểu dáng thời trang, hiện đại, Simplecarry H3 M Red/Grey chính là người bạn đồng hành đầy cá tính dành cho bạn.', 749000, 40, 240, 34, NOW(), 1, 2);
+
+INSERT INTO `products`
+VALUES
+    (29, 'Balo Simplecarry K1 M', 'Balo ngày càng trở thành một phụ kiện không thể thiếu đối với các bạn trẻ, không chỉ bởi sự tiện dụng, mà còn bởi tính thời trang mà nó mang lại. Với màu xám nhã nhặn và kiểu dánghiện đại, đến từ thương hiệu nổi tiếng, balo Simplecarry K1 M D.Grey chính là người bạn đồng hành đầy cá tính dành cho bạn.', 690000, 34, 240, 7, NOW(), 1, 2);
+
+INSERT INTO `products`
+VALUES
+    (30, 'Balo Simplecarry Sling Big M Blue', 'Simplecarry Sling Big M Blue là dòng sản phẩm balo một quai cao cấp, thời trang phù hợp cho Laptop 13''trở xuống. Balo một quai có 4 màu sắc thời trang, thiết kế tiện lợi với dây quai to bản thay đổi chiều dài linh hoạt, ngăn Laptop riêng biệt. Balo một quai Simplecarry Sling Big M được làm từ chất liệu Polyester bền màu, khả năng hạn chế thấm nước tốt.', 539000, 50, 600, 45, NOW(), 1, 2);
+
+INSERT INTO `products`
+VALUES
+    (31, 'Balo Mikkor The Victor Backpack TVB004 M Dark Mouse Grey', 'Mikkor The Victor Backpack TVB004 M Dark Mouse Grey là dòng sản phẩm balo laptop nằm trong bộ sưu tập The Victor 2018 thời trang của thương hiệu Mikkor. Balo có thiết kế hiện đại, phù hợp với nhiều đối tượng sử dụng. Thiết kế ngăn dành riêng cho laptop 15.6''và ngăn phía trước đựng phụ kiện. Balo được làm từ chất liệu Supertex Kodura 1000D hạn chế thấm nước tuyệt vờit.', 749000, 60, 400, 35, NOW(), 1, 3);
+
+INSERT INTO `products`
+VALUES
+    (32, 'Balo Mikkor The Lloyd Backpack TLBPM-004 M Dark Mouse Grey', 'Mikkor The Lloyd Backpack TLBPM-004 M Dark Mouse Grey là dòng sản phẩm balo laptop nằm trong bộ sưu tập chào mùa hè của thương hiệu Mikkor. Balo có thiết kế hiện đại, phù hợp với nhiều đối tượng sử dụng. Thiết kế ngăn dành riêng cho laptop 13''nằm bên trong ngăn chính và ngăn phía trước đựng phụ kiện. Balo được làm từ chất liệu 1000D Cordura có độ bền cao, chịu mài mòn, hạn chế thấm nước tốt.', 499000, 50, 490, 35, NOW(), 1, 3);
+
+INSERT INTO `products`
+VALUES
+    (33, 'Balo Mikkor The Betty Slingpack M Black', 'Thương hiệu Mikkor tiếp tục ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên The Betty. Balo Mikkor The Betty Slingpack M Black được làm từ chất liệu vải 1000D Kodura Supertex hạn chế thấm nước tốt, kết hợp vải lót Polyester 210D in nổi logo Mikkor độc đáo. Balo The Betty có thiết kế quai đeo đặc biệt với dây khóa kéo sẽ “biến hóa” balo hai quai thành một quai và ngược lại, ngăn chứa thích hợp cho iPad.', 499000, 35, 200, 30, NOW(), 1, 3);
+
+INSERT INTO `products`
+VALUES
+    (34, 'Balo Mikkor The Betty Slingpack M Grey', 'Thương hiệu Mikkor tiếp tục ra mắt bộ sưu tập balo thời trang cao cấp với màu sắc hiện đại, năng động mang tên The Betty. Balo Mikkor The Betty Slingpack M Grey được làm từ chất liệu vải 1000D Kodura Supertex hạn chế thấm nước tốt, kết hợp vải lót Polyester 210D in nổi logo Mikkor độc đáo. Balo The Betty có thiết kế quai đeo đặc biệt với dây khóa kéo sẽ “biến hóa” balo hai quai thành một quai và ngược lại, ngăn chứa thích hợp cho iPad.', 499000, 35, 160, 12, NOW(), 1, 3);
+
+INSERT INTO `products`
+VALUES
+    (35, 'Balo Mikkor The Lloyd Backpack TLBPL-005 L Red','Mikkor The Lloyd Backpack TLBPL-005 L Red là dòng sản phẩm balo laptop nằm trong bộ sưu tập chào mùa hè của thương hiệu Mikkor. Balo có thiết kế hiện đại, phù hợp với nhiều đối tượng sử dụng. Thiết kế ngăn dành riêng cho laptop 15.6''nằm bên trong ngăn chính và ngăn phía trước đựng phụ kiện. Balo được làm từ chất liệu 1000D Cordura có độ bền cao, chịu mài mòn, hạn chế thấm nước tốt.', 549000, 30, 200, 25, NOW(), 1, 3);
+
+INSERT INTO `products`
+VALUES
+    (36, 'Balo Targus TSB906-70 M Black', 'Với các bạn ưa thích du lịch,một chiếc balo có thể mang được laptop, vừa có thể kèm theo các phụ kiện cá nhân luôn có niềm yêu thích nhất định. Còn gì tuyệt vời hơn khi trong mỗi chuyến hành trình, luôn có một chiếc balo du lịch khỏe khoăn và tiện dụng đồng hành cùng bạn trên mọi nẻo đường đúng không nào. Balo Targus TSB906-70 M Black chính là sự lựa chọn hoàn hảo dành cho bạn.', 1518000, 20, 500, 9, NOW(), 1, 4);
+
+INSERT INTO `products`
+VALUES
+    (37, 'Balo Targus TSB906-70 M Rust', 'Với các bạn ưa thích du lịch, Có một hệ thống xe đẩy tích hợp để khe ba lô lên lổ đựng hành lý để thuận tiện đi du lịch và tay nắm giữ phía trước . Thêm vào đó, một tay cầm đệm có một tay cầm kép để làm cho mọi cuộc hành trình thú vị hơn. Chiếc balo Targus TSB90502M Rust dành cho những bạn yêu thích thể thao, yêu thích phong cách trẻ trung, khỏe khoắn.', 1644500, 20,460,5, NOW(), 1, 4);
+
+INSERT INTO `products`
+VALUES
+    (38, 'balo Targus TSB90603-70 M Plum', 'Bạn là người ưa thích khám phá những trải nghiệm mới. Một chiếc balo du lịch là vô cùng cần thiết. Với thiết kế vượt trội với việc kết hợp đựng cả máy tính xách tay, balo Targus TSB90603-70 M Plum sẽ mang đến cho bạn sự lựa chọn hoàn toàn chưa bao giờ có, sự lựa chọn mới mẻ sẽ mang đến cho bạn mợt chuyến du lịch đầy thú vị.', 1518000, 15,340,4, NOW(), 1, 4);
+
+INSERT INTO `products`
+VALUES
+    (39, 'Balo Targus TSB855-70 S Black', 'Balo Targus TSB855-70 S Black là sản phẩm tiện lợi, nhỏ gọn, thoải mái, và một ba lô nhỏ nhưng không gian lớn. Được thiết kế cho túi xách đựng máy tính lên đến 14 ". 3 zippered túi cho các kích cỡ khác nhau. Với kích thước tùy chọn mở rộng, nó cho phép tăng công suất lên đến 30% khi cần thiết. Bạn thực sự cảm thấy thoải mái khi sử dụng chúng.', 1518000, 20, 240, 15, NOW(), 1, 4);
+
+INSERT INTO `products`
+VALUES
+    (40, 'Balo Targus TBB574-70 M Black', 'Balo Targus TBB574-70 M Black là phiên bản cao cấp mới nhất hiện nay của dòng sản phẩm danh cho laptop. Sản phẩm có nhiều ngăn rộng rải, đựng được nhiều vật dụng hơn, được làm từ chất liệu polyester chống thấm, mang đến độ bền cao và khả năng chống chọi thời tiết tốt. Đây sẽ là sự lựa chọn balo đi học lý tưởng dành cho bạn, với các ngăn được phân chia khoa học, giúp bạn dễ dàng sắp xếp các vật dụng cá nhân của mình, đảm bảo đồ đạc bên trong luôn an toàn.', 2047000, 20, 540, 4, NOW(), 1, 4);
    
 -- ----------------------------
 -- Table structure for `details`
@@ -175,6 +253,28 @@ INSERT INTO `details` VALUES (17, 17, 'Targus', 'Mĩ', 'Vải', 'Ðen', '38.5 x 
 INSERT INTO `details` VALUES (18, 18, 'Targus', 'Mĩ', 'Polyester ', 'Ðỏ', '38.5 x 28 x 4 cm', '1 năm');
 INSERT INTO `details` VALUES (19, 19, 'Targus', 'Mĩ', 'Polyester ', 'Cam', '45.4 x 26 x 4 cm', '1 năm');
 INSERT INTO `details` VALUES (20, 20, 'Targus', 'Mĩ', 'Polyester', 'Ðen', '34.5 x 8.0 x 39.5 cm', '1 năm');
+
+INSERT INTO `details` VALUES (21, 21, 'Seliux', 'Việt Nam', '1000D Polyester/210D Nylon', 'Xanh Navy', '42 x 29 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (22, 22, 'Seliux', 'Việt Nam', '1000D Polyester/210D Nylon', 'Xanh rêu', '42 x 29 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (23, 23, 'Seliux', 'Việt Nam', '1000D Polyester/210D Nylon', 'Xám', '42 x 29 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (24, 24, 'Seliux', 'Việt Nam', '1000D Polyester/210D Nylon', 'Đỏ', '42 x 29 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (25, 25, 'Seliux', 'Việt Nam', '1000D Chicken Tex/420D Nylon', 'Xanh dương', '36 x 22 x 8 cm', '5 năm');
+INSERT INTO `details` VALUES (26, 26, 'Simplecarry', 'Việt Nam', 'Polyester', 'Xám', '40 x 25 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (27, 27, 'Simplecarry', 'Việt Nam', 'Polyester', 'Xanh dương/Xanh Navy', '44 x 32 x 18 cm', '1 năm');
+INSERT INTO `details` VALUES (28, 28, 'Simplecarry', 'Việt Nam', 'Polyester', 'Đỏ đậm/xám', '44 x 32 x 18 cm', '1 năm');
+INSERT INTO `details` VALUES (29, 29, 'Simplecarry', 'Việt Nam', 'Polyester', 'Xám đậm/xám', '44 x 30 x 13 cm', '5 năm');
+INSERT INTO `details` VALUES (30, 30, 'Simplecarry', 'Việt Nam', 'Polyester', 'Xanh', '40 x 25 x 12 cm', '5 năm');
+INSERT INTO `details` VALUES (31, 31, 'Mikkor', 'Việt Nam', 'Supertex Kodura 1000D/PU', 'Xám lông chuột', '40 x 27 x 15cm', '5 năm');
+INSERT INTO `details` VALUES (32, 32, 'Mikkor', 'Việt Nam', 'Kodura 600D, phủ PU', 'Xám lông chuột đậm', '44 x 30 x 16 cm', '5 năm');
+INSERT INTO `details` VALUES (33, 33, 'Mikkor', 'Việt Nam', '1000D Kodura Supertex', 'Đen', '33 x 20 x 8 cm', '5 năm');
+INSERT INTO `details` VALUES (34, 34, 'Mikkor', 'Việt Nam', '1000D Kodura Supertex', 'Xám lông chuột đậm', '33 x 20 x 8 cm', '5 năm');
+INSERT INTO `details` VALUES (35, 35, 'Mikkor', 'Việt Nam', 'Kodura 600D/PU ', 'Đỏ', '42 x 29 x 14 cm', '1 năm');
+INSERT INTO `details` VALUES (36, 36, 'Targus', 'Mỹ', 'NyLon', 'Đen', '42.5 x 29 x 17cm', '1 năm');
+INSERT INTO `details` VALUES (37, 37, 'Targus', 'Mỹ', 'NyLon', 'Cam nâu', '47 x 30.5 x 19 cm', '1 năm');
+INSERT INTO `details` VALUES (38, 38, 'Targus', 'Mỹ', 'NyLon', 'Tím', '42.5 x 29 x 17cm', '1 năm');
+INSERT INTO `details` VALUES (39, 39, 'Targus', 'Mỹ', 'Polyester', 'Đen', '31 x 22 x 45 cm', 'Trọn đời');
+INSERT INTO `details` VALUES (40, 40, 'Targus', 'Mỹ', 'Polyester', 'Đỏ', '50.8 x 30.5 x 17.8cm', '1 năm');
+
  
 -- ----------------------------
 -- Table structure for `users`
