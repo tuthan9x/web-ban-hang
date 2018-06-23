@@ -1,0 +1,22 @@
+.error-page {
+    margin: 1.25rem auto;
+}
+
+.back-to-home {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.error-page .back-to-home button {
+    background-color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.error-page .back-to-home a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
