@@ -40,3 +40,34 @@ exports.loadBySoldOption = (limit) => {
     var sql = `select * from products order by Sold DESC limit ${limit}`;
     return db.load(sql);
 }
+
+exports.single = (proID) => {
+    return new Promise((resolve, reject) => {
+        var sql = `select * from products where ProID = ${proID}`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            }
+            else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+exports.randomSameCategory = catID => {
+    var sql = `select * from products where CatID = ${catID} order by RAND() LIMIT 2`;
+    return db.load(sql);
+}
+
+exports.randomSameBrand = brandID => {
+    var sql = `select * from products where BrandID = ${brandID} order by RAND() LIMIT 2`;
+    return db.load(sql);
+}
+
+exports.search = (key) => {
+    var sql = "select * from products where ProName like '%" + `${key}` + "%'";
+    return db.load(sql);
+}
