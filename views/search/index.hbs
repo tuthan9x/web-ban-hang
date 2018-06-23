@@ -1,0 +1,210 @@
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/itemSlider/css/main-style.css"> 
+	<style>
+		#dropdownMenuButton {
+			background-color: #fff;
+		}
+
+		#dropdownMenuButton:focus {
+			box-shadow: none;
+		}
+
+		.dropdown > .dropdown-menu {
+			left: initial;
+			right: 0;
+			margin: 0;
+			padding: 5px 0;
+		}
+	</style>
+{{/section}}
+
+{{#section 'js'}}
+	<script src="/itemSlider/js/modernizr.custom.63321.js"></script>
+	<script src="/itemSlider/js/jquery.catslider.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#mi-slider').catslider();
+		});
+	</script> 
+{{/section}}
+
+<div class="row">
+	<div class="col">
+		<div class="main box-border">
+			<div id="mi-slider" class="mi-slider">
+				<ul>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/1.jpg" alt="img01">
+							<h4>Ba lô Seliux</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/2.jpg" alt="img02">
+							<h4>Ba lô Mikkor</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/3.jpg" alt="img03">
+							<h4>Ba lô Targus</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/4.jpg" alt="img04">
+							<h4>Ba lô SimpleCarry</h4>
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/5.jpg" alt="img05">
+							<h4>Túi xách Mikkor</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/6.jpg" alt="img06">
+							<h4>Túi xách Targus</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/7.png" alt="img07">
+							<h4>Túi xách Seliux</h4>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="/itemSlider/images/8.jpg" alt="img08">
+							<h4>Túi xách SimpleCarry</h4>
+						</a>
+					</li>
+				</ul>
+				<nav>
+					{{#each layoutVM.categories}}
+					<a href="#">{{CatName}}</a>
+					{{/each}}
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<div class="row">
+			<div class="col-9">
+				<ol class="breadcrumb" style="background-color: #fff;">
+					<li class="breadcrumb-item" aria-current="page">
+						Có {{len}} mặt hàng được tìm thấy theo "<a href="/search?q={{query}}">{{query}}</a>"
+					</li>
+				</ol>
+			</div>
+			<div class="col-3 text-right">
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Sắp xếp
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<li data-value="price:desc" class="dropdown-item">
+							<i class="fa fa-check"></i>
+							<span>Giá giảm dần</span>
+						</li>
+						{{!-- <button class="dropdown-item" type="button">Action</button>
+						<button class="dropdown-item" type="button">Another action</button>
+						<button class="dropdown-item" type="button">Something else here</button> --}}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+            {{#if len}}
+                {{#each products}}
+                <div class="col-md-3 col-sm-4 pb-3">
+                    <div class="card text-left product-box">
+                        <a href="/product/detail/{{ProID}}">
+                            <img class="img-fluid" src="/img/{{ProID}}/thumbnail.jpg">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/product/detail/{{ProID}}">{{ProName}}</a>
+                            </h5>
+                            <p class="card-text mb-0">
+                                <span class="font-weight-bold">{{number_format Price}}
+                                    <u>đ</u>
+                                </span>
+                                {{!-- <small class="font-weight-light">
+                                    <del>589,000&nbsp;
+                                        <u>đ</u>
+                                    </del>
+                                </small>
+                                <span class="sale-tag">-49%</span> --}}
+                            </p>
+                            <p class="mb-0">
+                                <span class="fa fa-star checked rating"></span>
+                                <span class="fa fa-star checked rating"></span>
+                                <span class="fa fa-star checked rating"></span>
+                                <span class="fa fa-star checked rating"></span>
+                                <span class="fa fa-star rating"></span>
+                            </p>
+                            <a href="#" class="btn btn-outline-success btn-sm mr-1" role="button">Mua Ngay</a>
+                            <a href="/product/detail/{{ProID}}" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            {{else}}
+                <div class="col">
+                    Không có sản phẩm thoả yêu cầu.
+                </div>
+            {{/if}}
+		</div>
+		{{#if len}}
+			<div class="row">
+				<ul class="pagination ml-auto">
+					{{#if hasPrevious}}
+						<li class="page-item">
+							<a class="page-link" href="/search?q={{@root.query}}&page=1" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</a>
+						</li>
+					{{else}}
+						<li class="page-item disabled">
+							<a class="page-link" href="#" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</a>
+						</li>
+					{{/if}}
+					{{#each page_numbers}}
+						{{#if isCurPage}}
+							<li class="page-item active"><a class="page-link" href="javascript:;">{{value}}</a></li>
+						{{else}}
+							<li class="page-item"><a class="page-link" href="/search?q={{@root.query}}&page={{value}}">{{value}}</a></li>
+						{{/if}}
+					{{/each}}
+					{{#if hasNext}}
+						<li class="page-item">
+							<a class="page-link" href="/search?q={{@root.query}}&page={{maxPage}}" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</a>
+						</li>
+					{{else}}
+						<li class="page-item disabled">
+							<a class="page-link" href="#" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</a>
+						</li>
+					{{/if}}
+				</ul>
+			</div>
+		{{/if}}
+	</div>
+</div>
