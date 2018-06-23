@@ -2,6 +2,7 @@ var express = require('express');
 var productRepo = require('../repos/productRepo');
 var brandRepo = require('../repos/brandRepo');
 var catRepo = require('../repos/categoryRepo');
+var detailRepo = require('../repos/detailRepo');
 
 var config = require('../config/config');
 
@@ -31,7 +32,7 @@ router.get('/byCat/:catId', (req, res) => {
         }
 
         var numbers = [];
-        for (i = 1; i <= nPages; i++) {
+        for (let i = 1; i <= nPages; i++) {
             numbers.push({
                 value: i,
                 isCurPage: i === +page
@@ -55,25 +56,22 @@ router.get('/byBrand/:brandId', (req, res) => {
     if (!page) {
         page = 1;
     }
-
+    console.log(page);
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
-
+    console.log(offset);
     var loadAll = productRepo.loadAllByBrand(brandId, offset);
     var countByBrand = productRepo.countByBrand(brandId);
     var brand = brandRepo.single(brandId);
     Promise.all([loadAll, countByBrand, brand]).then(([pRows, countRows, brandRows]) => {
-        // console.log(pRows);
-        // console.log(countRows);
-        // console.log(brandNameRows);
-
         var total = countRows[0].total;
+        console.log(total);
         var nPages = total / config.PRODUCTS_PER_PAGE;
         if (total % config.PRODUCTS_PER_PAGE > 0) {
             nPages++;
         }
 
         var numbers = [];
-        for (i = 1; i <= nPages; i++) {
+        for (let i = 1; i <= nPages; i++) {
             numbers.push({
                 value: i,
                 isCurPage: i === +page
@@ -87,6 +85,33 @@ router.get('/byBrand/:brandId', (req, res) => {
             brandName: brandRows.BrandName
         };
         res.render('product/byBrand', vm);
+    });
+});
+
+router.get('/detail/:proID', (req, res) => {
+    var proID = req.params.proID;
+    productRepo.single(proID).then(product => {
+        if (product) {
+            var brand = brandRepo.single(product.BrandID);
+            var category = catRepo.single(product.CatID);
+            var detail = detailRepo.single(proID);
+            var product_same_category = productRepo.randomSameCategory(product.CatID);
+            var product_same_brand = productRepo.randomSameBrand(product.BrandID);
+            Promise.all([brand, category, detail, product_same_brand, product_same_category]).then(([brand, category, detail, product_same_brand, product_same_category]) => {
+                var vm = {
+                    product: product,
+                    category: category,
+                    brand: brand,
+                    detail: detail,
+                    product_same_brand: product_same_brand,
+                    product_same_category: product_same_category
+                };
+                res.render('product/detail', vm);
+            })
+        }
+        else {
+            res.redirect('error/index');
+        }
     });
 });
 
