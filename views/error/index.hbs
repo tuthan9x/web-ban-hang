@@ -1,7 +1,16 @@
 {{#section 'title'}}
 	Error
 {{/section}}
-
-<div class="alert alert-danger">
-	<strong>404!</strong> Please contact admin.
+{{#section 'css'}}
+	<link rel="stylesheet" href="/css/error.css" type="text/css">
+{{/section}}
+<div class="row error-page text-center">
+	<div class="col-12">
+		<img src="/img/404.png" alt="404.png">
+	</div>
+	<div class="col-12 back-to-home">
+		<button>
+			<a href="/">Về trang chủ</a>
+		</button>
+	</div>
 </div>
