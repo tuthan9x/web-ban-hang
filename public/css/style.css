@@ -2,16 +2,16 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Roboto Condensed', sans-serif
+}
+
 .nav-link {
     color: #fff !important;
 }
 
 a:hover {
     text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
 }
 
 .box-border {
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-box h5>a:hover {
-    color: #1a9cb7;
+    color: #02a8f3;
 }
 
 .sale-tag {
@@ -275,4 +275,17 @@ h1, h2, h3, h4, h5, h6 {
     div > h5 > a {
         font-size: 1rem;
     }
+}
+
+@media only screen and (max-width: 576px) {
+    .a {
+        display: none;
+    }
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: ">";
 }
