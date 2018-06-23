@@ -1,0 +1,172 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/css/detail.css"> 
+{{/section}}
+
+{{#section 'js'}}
+
+{{/section}}
+
+<div class="row">
+    <div class="col">
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/home" class="text-primary">Trang chủ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/product/byCat/{{category.CatID}}">{{category.CatName}}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{product.ProName}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="row product">
+    <div class="col-sm-6 col-12">
+        <img src="/img/{{product.ProID}}/2.jpg" class="img-fluid" style="border: 1px solid #d3d3d3;" alt="{{product.ProName}}">
+    </div>
+    <div class="col-sm-6 detail col-12">
+        <h1 class="title">
+            {{product.ProName}}
+        </h1>
+        <p class="brand">
+            <a href="/product/byCat/{{brand.BrandID}}">THƯƠNG HIỆU: {{brand.BrandName}}</a>
+        </p>
+        <p class="price">
+            <span class="main-price">
+                {{number_format product.Price}}đ
+            </span>
+            {{!--
+            <span class="price-compare">589,000đ</span> --}}
+        </p>
+        <p class="view">Số lượt xem: {{product.Viewer}}</p>
+        <p class="sold">Số lượt bán: {{product.Sold}}</p>
+        <table class="product-detail" style="width: 428.253px;">
+            <tbody>
+                <tr>
+                    <td>Thương hiệu:</td>
+                    <td>{{detail.BrandName}}</td>
+                </tr>
+                <tr>
+                    <td>Nguồn gốc:</td>
+                    <td>{{detail.Origin}}</td>
+                </tr>
+                <tr>
+                    <td>Chất liệu:</td>
+                    <td>{{detail.Material}}</td>
+                </tr>
+                <tr>
+                    <td>Màu sắc:</td>
+                    <td>{{detail.Color}}</td>
+                </tr>
+                <tr>
+                    <td>Kích thước:</td>
+                    <td>{{detail.Size}}</td>
+                </tr>
+                <tr>
+                    <td>Thời gian bảo hành:</td>
+                    <td>{{detail.Guarantee}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="add-to-cart">
+            <div class="quantity-col">
+                <p class="quantity-label">
+                    Số lượng:
+                </p>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-light btn-down" type="button">-</button>
+                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="5" class="form-control input-quantity" style="display: block;">
+                    <button class="btn btn-light btn-up" type="button">+</button>
+                </div>
+            </div>
+            <div class="cart-box">
+                <button type="button" class="btn">
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row product product-bottom">
+    <div class="col-12 col-sm-8 description">
+        <ul class="nav nav-tabs">
+            <li class="col active">
+                <a data-toggle="tab" href="#nav-description" aria-expanded="true">
+                    <strong>CHI TIẾT SẢN PHẨM</strong>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="nav-description" class="tab-pane active in">
+                <section>
+                    <p style="text-align: justify;">
+                        {{product.Description}}
+                    </p>
+                    <p style="text-align: center;">
+                        <img src="/img/{{product.ProID}}/1.jpg" alt="{{product.ProName}}" width="100%">
+                    </p>
+                    <p style="text-align: justify;">
+                        <strong>Một số hình ảnh khác</strong>
+                    </p>
+                    <p style="text-align: center;">
+                        <img src="/img/{{product.ProID}}/2.jpg" alt="{{product.ProName}}" width="100%">
+                    </p>
+                    <p style="text-align: justify;">&nbsp;</p>
+                    <p style="text-align: center;">
+                        <img src="/img/{{product.ProID}}/3.jpg" alt="{{product.ProName}}" width="100%">
+                    </p>
+                    <p style="text-align: justify;">&nbsp;</p>
+                    <p style="text-align: center;">
+                        <img src="/img/{{product.ProID}}/4.jpg" alt="{{product.ProName}}" width="100%">
+                    </p>
+                    <p style="text-align: justify;">&nbsp;</p>
+                    <p style="text-align: center;">
+                        <img src="/img/{{product.ProID}}/5.jpg" alt="{{product.ProName}}" width="100%">
+                    </p>
+                    <p style="text-align: justify;">&nbsp;</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-4">
+        <div class="new same-category">
+            <h4 class="title">SẢN PHẨM CÙNG LOẠI</h4>
+            <div class="content">
+                <div class="container-fluid">
+                    {{#each product_same_category}}
+                    <div class="row">
+                        <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a>
+                        <div class="col-8 see-more">
+                            <a href="/product/detail/{{ProID}}" class="see-more-title">{{ProName}}</a>
+                            <div class="price">
+                                <span class="custom-color main-price">{{number_format Price}}đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="new same-brand">
+            <h4 class="title">SẢN PHẨM CÙNG THƯƠNG HIỆU</h4>
+            <div class="content">
+                <div class="container-fluid">
+                    {{#each product_same_brand}}
+                    <div class="row">
+                        <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a>
+                        <div class="col-8 see-more">
+                            <a href="/product/detail/{{ProID}}" class="see-more-title">{{ProName}}</a>
+                            <div class="price">
+                                <span class="custom-color main-price">{{number_format Price}}đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
