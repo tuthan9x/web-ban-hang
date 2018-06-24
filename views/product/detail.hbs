@@ -1,9 +1,27 @@
 {{#section 'css'}}
 <link rel="stylesheet" type="text/css" href="/css/detail.css"> 
 {{/section}}
-
+  
 {{#section 'js'}}
+    <script>
+        $(".btn-down").click(function(){
+            var value = parseInt($("#qty").attr('value'));
+            var min = parseInt($("#qty").attr('min'));
+            if (value > min) {
+                value--;
+                $("#qty").attr('value', value);
+            }
+        });
 
+        $(".btn-up").click(function(){
+            var value = parseInt($("#qty").attr('value'));
+            var max = parseInt($("#qty").attr('max'));
+            if (value < max) {
+                value++;
+                $("#qty").attr('value', value);
+            }
+        });
+    </script>
 {{/section}}
 
 <div class="row">
@@ -77,7 +95,7 @@
                 </p>
                 <div class="btn-group" role="group">
                     <button class="btn btn-light btn-down" type="button">-</button>
-                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="5" class="form-control input-quantity" style="display: block;">
+                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="{{product_available}}" class="form-control input-quantity" style="display: block;">
                     <button class="btn btn-light btn-up" type="button">+</button>
                 </div>
             </div>
