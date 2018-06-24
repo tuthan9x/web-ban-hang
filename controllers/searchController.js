@@ -6,7 +6,7 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
     var query = unescape(req.query.q);
-    // var sortPrice = req.query.sort;
+    var sortPrice = req.query.sort;
     if (query) {
         var page = req.query.page;
         if (!page) {
@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
         var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
     
         productRepo.search(query).then(rows => {
-
             var nPages = rows.length / config.PRODUCTS_PER_PAGE;
             if (rows.length % config.PRODUCTS_PER_PAGE > 0) {
                 nPages++;
@@ -29,20 +28,17 @@ router.get('/', (req, res) => {
                     isCurPage: i === +page
                 });
             }
-            // if (sortPrice)
-            // {
-            //     if (sortPrice === "price:asc")
-            //     {
-            //         rows.sort((a, b) => {
-            //             return a.Price <= b.Price;
-            //         });
-            //     }
-            //     else {
-            //         rows.sort((a, b) => {
-            //             return a.Price >= b.Price;
-            //         });
-            //     }
-            // }
+            if (sortPrice){
+                if (sortPrice === "price:asc"){
+                    rows.sort((a, b) => {return (a.Price >= b.Price) ? 1 : ((b.Price > a.Price) ? - 1 : 1)});
+                }
+                else if (sortPrice === "price:desc"){
+                    rows.sort((a, b) => {return (a.Price <= b.Price) ? 1 : ((b.Price < a.Price) ? - 1 : 1)});
+                }
+                else {
+                    rows.sort((a, b) => {return (a.Viewer <= b.Viewer) ? 1 : ((b.Viewer < a.Viewer) ? - 1 : 1)});
+                }
+            }
             var vm = {
                 products: rows.slice(offset, offset + config.PRODUCTS_PER_PAGE),
                 len: rows.length,
@@ -50,7 +46,8 @@ router.get('/', (req, res) => {
                 page_numbers: numbers,
                 hasPrevious: page != 1,
                 hasNext: page != numbers.length,
-                maxPage: numbers.length
+                maxPage: numbers.length,
+                sortPrice: sortPrice !== undefined ? "&sort=" + sortPrice : ""
             }
             res.render('search/index', vm);
         });
