@@ -5,15 +5,19 @@
 {{#section 'css'}}
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="/css/signup.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
 {{/section}}
+
+{{#if showError}}
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Title!</strong> {{errorMsg}}
+</div>
+{{/if}}
+
 
 {{#section 'js'}}
 <!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 	<script>
@@ -158,11 +162,11 @@
 						<div class="form-group">
 
 							<div class="col-md-offset-3 col-md-9">
-								<button id="btn-signup" type="submit" class="btn btn-info" onclick="return kiemTraDangKy()">Sign Up</button>
+								<button id="btn-signup" type="submit" class="btn btn-info SignUp" onclick="return kiemTraDangKy()"><span class="fa fa-user"></span>Sign Up</button>
 							</div>
 						</div>
 
-						<div class="Dacotk">Đã có tài khoản?Kích<span style="color:blue;cursor:pointer"><b id="dangnhap" onclick="onDangnhap()"> ở đây.</b></span></div>
+						<div class="Dacotk">Đã có tài khoản?Kích<span style="color:blue;cursor:pointer"><a id="dangnhap" href="/account/login"> ở đây.</a></div>
 					</form>
 				</div>
 				<div class="col-sm-5">

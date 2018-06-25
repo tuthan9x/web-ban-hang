@@ -1,7 +1,3 @@
-*{
-    margin:0px;
-    padding:0px;
-}
 
 .taotaikhoan {
     text-align:  center;
@@ -17,12 +13,14 @@ h5.noiquyDK {
 }
 
 #btn-signup {
-    padding: 10px 34px;
+    padding: 12px 40px;
     width: 315px;
     background: #a3b322bf;
     color: black;
     font-weight: bold;
     font-size: 18px;
+    margin-top: 3px;
+    margin-left: 30px;
 }
 
 
@@ -31,17 +29,6 @@ h5.noiquyDK {
     font-size: 13px;
 }
 
-button.btn {
-    width: 314px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-
-button#btn-signup {
-    width: 170px;
-    margin-left: 102px;
-}
 
 .mota {
     font-size: 19px;

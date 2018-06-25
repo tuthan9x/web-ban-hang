@@ -1,11 +1,5 @@
-*{
-	margin:0px;
-	padding:0px;
-}
 
-
-
-.taotaikhoan {
+.LoginTK {
     text-align:  center;
     font-size: 47px;
     font-weight:  bold;
@@ -14,20 +8,27 @@
 h5.noiquyDK {
     padding: 10px 0px 20px 112px;
 }
-
-button.btn.btn-warning {
+button.btn.btn-warning.col-md-offset-4.col-md-8.login {
+    width: 313px;
     margin-left: 80px;
 }
 
-
-button.btn {
+.MangXaHoi {
     width: 314px;
     padding: 10px;
     margin-top: 10px;
     margin-left: 65px;
 }
 
-.mota {
+.motaDN {
     font-size: 19px;
     font-family: monospace;
+}
+
+.NotAccount{
+    margin-left: 100px;
+}
+
+.NotAccount a {
+    text-decoration: none;
 }
