@@ -42,20 +42,39 @@
             </div>
         </div>
         <ul class="nav nav-tabs"></ul>
-        <div class="col-xs-12 border mt-2">
-            <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a>
-            <img src="./public/img/1/1.jpg" class="img-fluid" alt="" />
-            <div class="col-right">
-                <p class="name">
-                    <a href="#" class="effect-underline" style="color:black"  >AAAA</a>
-                </p>
-            </div>
-            
+        <div class="col-md-12 border mt-2">
+            {{!-- <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a> --}}
+            <div class="row">
+                <div class="col-3">
+                    <img src="./img/1/thumbnail.jpg" class="img-fluid" alt="" width="120px" heigth="120px" />
+                    
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <p class="name">
+                                <a href="#" class="effect-underline" style="color:black">Túi Xách Mikkor Betty Tablet BT002 M Dark Mouse Grey</a>
+                                <div class="mt-5">Xóa</div>
+                            </p>
+                        </div>
+                        <div class="col-md-3 mt-2">
+                            <a>200000 đ</a>
+                        </div>
+                        <div class="col-md-3 mt-2">
+                             <div class="btn-group" role="group">
+                                    <button class="btn btn-light btn-down" type="button">-</button>
+                                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="{{product_available}}" class="form-control input-quantity" style="display: block;">
+                                    <button class="btn btn-light btn-up" type="button">+</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
     <div class="col-12 col-sm-4">
         <div class="new same-category">
-            <h4 class="title">SẢN PHẨM CÙNG LOẠI</h4>
+            <h4 class="title">TẠM TÍNH</h4>
             <div class="content">
                 <div class="container-fluid">
                     {{#each product_same_category}}
@@ -73,7 +92,7 @@
             </div>
         </div>
         <div class="new same-brand">
-            <h4 class="title">SẢN PHẨM CÙNG THƯƠNG HIỆU</h4>
+            <h4 class="title">THÀNH TIỀN</h4>
             <div class="content">
                 <div class="container-fluid">
                     {{#each product_same_brand}}
