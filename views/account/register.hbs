@@ -1,0 +1,177 @@
+{{#section 'title'}}
+Đăng ký
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="/css/signup.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+{{/section}}
+
+{{#section 'js'}}
+<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script>
+	        $('#txtDOB').datepicker({
+	        uiLibrary: 'bootstrap4'
+	        });
+	</script>
+
+<script type="text/javascript">
+	function kiemTraDangKy(){
+		var thongbao=document.getElementById("thongbao");
+		var thongbao1=document.getElementById("thongbao1");
+		var thongbao2=document.getElementById("thongbao2");
+		var thongbao3=document.getElementById("thongbao3");
+		var thongbao4=document.getElementById("thongbao4");
+		var thongbao5=document.getElementById("thongbao5");
+		if(frmDangKy.username.value==""){
+			thongbao.style.display="block";
+			thongbao.style.color="red";
+			return false;
+		}
+		else{
+			thongbao.style.display="none";
+		}
+
+		if(frmDangKy.rawPWD.value==""){
+			thongbao1.style.display="block";
+			thongbao1.style.color="red";
+			return false;
+		}
+		else{
+			thongbao1.style.display="none";
+		}
+
+
+		if(frmDangKy.cPWD.value==""){
+			thongbao2.style.display="block";
+			thongbao2.style.color="red";
+			return false;
+		}
+		else{
+			thongbao2.style.display="none";
+		}
+
+		if(frmDangKy.rawPWD.value!=frmDangKy.cPWD.value){
+			thongbao3.style.display="block";
+			thongbao3.style.color="red";
+			return false;
+		}
+		else{
+			thongbao3.style.display="none";
+		}
+
+		if(frmDangKy.name.value==""){
+			thongbao4.style.display="block";
+			thongbao4.style.color="red";
+			return false;
+		}
+		else{
+			thongbao4.style.display="none";
+		}
+
+		if(frmDangKy.email.value==""){
+				thongbao5.style.display="block";
+				thongbao5.style.color="red";
+				return false;
+			}
+
+			var email = document.getElementById("email");
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			if (!filter.test(frmDangKy.email.value)) {
+				thongbao5.style.display="block";
+				thongbao5.style.color="red";
+				return false;
+			}
+			else{
+				thongbao5.style.display="none";
+			}
+
+		return true;}
+	</script>
+
+{{/section}}
+
+
+<div class="jumbotron">
+			<h1>Sign up</h1>
+			<div class="row">
+				<div class="col-sm-7">
+					<form id="frmDangKy" action="" method="POST" role="form">
+						<div class="form-group">
+							<label for="txtUsername">UserName:</label>
+
+							<input type="text" class="form-control col-sm-10" id="txtUsername" name="username" placeholder="Username">
+							<p id="thongbao" style="display:none">Mời bạn nhập tên đăng nhập</p>
+
+						</div>
+
+						<div class="form-group">
+							<label for="txtPWD">Password:</label>
+
+							<input type="password" class="form-control col-sm-10" id="txtPWD" name="rawPWD" placeholder="Password">
+							<p id="thongbao1" style="display:none">Mời bạn nhập password</p>
+
+						</div>
+
+						<div class="form-group">
+							<label for="txtCPWD">Re-Type:</label>
+
+							<input type="repassword" class="form-control col-sm-10" id="txtCPWD" name="cPWD" placeholder="Re-Type Password">
+							<p id="thongbao2" style="display:none">Nhập lại password</p>
+							<p id="thongbao3" style="display:none">Password nhập không chính xác.Mời bạn nhập lại password</p>
+
+
+						</div>
+
+						<div class="form-group">
+							<label for="txtName">Full Name:</label>
+
+							<input type="text" class="form-control col-sm-10" id="txtName" name="name" placeholder="Name">
+							<p id="thongbao4" style="display:none">Mời bạn nhập họ tên</p>
+
+						</div>
+						<div class="form-group">
+							<label for="txtEmail">Email:</label>
+
+							<input type="text" class="form-control col-sm-10" id="txtEmail" name="email" placeholder="Email Address">
+							<p id="thongbao5" style="display:none">Email không hợp lệ</p>
+
+						</div>
+
+						<div class="form-group">
+							<label for="txtDOB"">Ngày Sinh:</label>
+
+							
+							<input type="text/javascript" class="form-control col-sm-9" id="txtDOB" placeholder="d/m/yyyy" name="dob"/>
+
+						</div>     
+
+						<h5 class="noiquyDK">Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán theo <span style="color:blue">điều kiện sử dụng và chính sách của chúng tôi.</span></h5>
+
+						<div class="form-group">
+
+							<div class="col-md-offset-3 col-md-9">
+								<button id="btn-signup" type="submit" class="btn btn-info" onclick="return kiemTraDangKy()">Sign Up</button>
+							</div>
+						</div>
+
+						<div class="Dacotk">Đã có tài khoản?Kích<span style="color:blue;cursor:pointer"><b id="dangnhap" onclick="onDangnhap()"> ở đây.</b></span></div>
+					</form>
+				</div>
+				<div class="col-sm-5">
+					<div class="taotaikhoan"><label for="taotaikhoan">Tạo tài khoản</label></div>
+					<div class="mota">Tạo tài khoản để theo dõi đơn hàng, lưu
+						danh sách sản phẩm yêu thích, nhận 
+					nhiều ưu đãi hấp dẫn.</div>
+					<img src="/img/graphic-map.png" alt="">
+				</div>
+			</div>
+		</div> <!--end row dangky-->
+	</div>
