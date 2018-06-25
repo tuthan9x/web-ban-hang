@@ -28,8 +28,6 @@
 {{/section}}
 
 
-
-
 <div class="row product product-bottom">
     <div class="col-12 col-sm-8">
         <div class="row">
@@ -41,73 +39,71 @@
                 <a>GIỎ HÀNG</a>
             </div>
         </div>
-        <ul class="nav nav-tabs"></ul>
-        <div class="col-md-12 border mt-2">
-            {{!-- <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a> --}}
-            <div class="row">
-                <div class="col-3">
-                    <img src="./img/1/thumbnail.jpg" class="img-fluid" alt="" width="120px" heigth="120px" />
+        <ul class="nav nav-tabs mb-3"></ul>
+        {{#each items}}
+        <div class="col-md-12 border ">                                                                                                                                                                                                                                                                                                                                                 
+			
+                <div class="row">
+                    <div class="col-3">
+                        <a href="/product/detail/{{Product.ProID}}" style="background-image: url(./img/{{Product.ProID}}/thumbnail.jpg);" class="col-4 image"></a>
                     
-                </div>
-                <div class="col-9">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <p class="name">
-                                <a href="#" class="effect-underline" style="color:black">Túi Xách Mikkor Betty Tablet BT002 M Dark Mouse Grey</a>
-                                <div class="mt-5">Xóa</div>
-                            </p>
-                        </div>
-                        <div class="col-md-3 mt-2">
-                            <a>200000 đ</a>
-                        </div>
-                        <div class="col-md-3 mt-2">
-                             <div class="btn-group" role="group">
+                    </div>
+                    <div class="col-9">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <p class="name">
+                                    <a href="/product/detail/{{Product.ProID}}" class="effect-underline" style="color:black">{{Product.ProName}}</a>
+                                    <div class="mt-5">Xóa</div>
+                                </p>
+                            </div>
+                            <div class="col-md-3 mt-2">
+                                <span class="font-weight-bold">{{number_format items.Amount}}
+                                    <u>đ</u>
+                                </span>
+                            </div>
+                            <div class="col-md-3 mt-2 ml-3">
+                                <div class="btn-group" role="group">
                                     <button class="btn btn-light btn-down" type="button">-</button>
-                                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="{{product_available}}" class="form-control input-quantity" style="display: block;">
+                                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="{{Product.Quantity}}" class="form-control input-quantity"
+                                        style="display: block;">
                                     <button class="btn btn-light btn-up" type="button">+</button>
                                 </div>
-                        </div>
-                    </div>
-                </div>
-            </div>            
-        </div>
-    </div>
-    <div class="col-12 col-sm-4">
-        <div class="new same-category">
-            <h4 class="title">TẠM TÍNH</h4>
-            <div class="content">
-                <div class="container-fluid">
-                    {{#each product_same_category}}
-                    <div class="row">
-                        <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a>
-                        <div class="col-8 see-more">
-                            <a href="/product/detail/{{ProID}}" class="see-more-title">{{ProName}}</a>
-                            <div class="price">
-                                <span class="custom-color main-price">{{number_format Price}}đ</span>
                             </div>
                         </div>
                     </div>
-                    {{/each}}
                 </div>
+                    
+        </div>
+         {{/each}} 
+    </div>
+    <div class="col-12 col-sm-4">
+        <div class="new same-category" >
+            <h4 class="title"  style="background-color:#02A8F3; color:white; font-size:20px" >TẠM TÍNH</h4>
+            <div class="content">
+                <div id="tamtinh" class="text-right mr-3" style="font-size:24px" ><a>200.000 <strong>đ</strong></a></div>
+                  
             </div>
         </div>
         <div class="new same-brand">
-            <h4 class="title">THÀNH TIỀN</h4>
+            <h4 class="title" style="background-color:#02A8F3; color:white">THÀNH TIỀN</h4>
             <div class="content">
-                <div class="container-fluid">
-                    {{#each product_same_brand}}
-                    <div class="row">
-                        <a href="/product/detail/{{ProID}}" style="background-image: url(/img/{{ProID}}/thumbnail.jpg);" class="col-4 image"></a>
-                        <div class="col-8 see-more">
-                            <a href="/product/detail/{{ProID}}" class="see-more-title">{{ProName}}</a>
-                            <div class="price">
-                                <span class="custom-color main-price">{{number_format Price}}đ</span>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col">
+
                     </div>
-                    {{/each}}
+                    <div class="col">
+                    <div class="text-right mr-3" style="font-size:24px" ><a>200.000 <strong>đ</strong></a></div>
+                     <div class="text-right mr-3"><a>(Đã bao gồm VAT)</a></div>
+                    </div>
+                   
+                
                 </div>
-            </div>
+               
         </div>
+       
     </div>
+     <div >
+                          <button type="button" class="btn btn-large btn-success"></button>
+                    </div>
+            </div>
 </div>
