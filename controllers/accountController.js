@@ -2,6 +2,8 @@ var express = require('express'),
     SHA256 = require('crypto-js/sha256'),
     moment = require('moment');
 
+var flash = require('connect-flash');
+
 var accountRepo = require('../repos/accountRepo');
 var restrict = require('../middle-wares/restrict');
 
@@ -26,7 +28,11 @@ router.post('/register', (req, res) => {
     };
 
     accountRepo.add(user).then(value => {
-        res.render('account/register');
+        var vm = {
+                showError: true,
+                errorMsg: 'Register successfull.Please login.'
+            };
+        res.render('account/register',vm);
     });
 });
 
@@ -45,6 +51,7 @@ router.post('/login', (req, res) => {
             // user = rows[0];
 
             req.session.isLogged = true;
+
 
             res.redirect('/');
 
