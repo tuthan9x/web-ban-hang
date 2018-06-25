@@ -1,22 +1,33 @@
-.dangnhap{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 100px;
-}
-
-button.btn.btn-success {
-	padding: 10px 70px 10px 70px;
-	margin-top: 7px;
+*{
+	margin:0px;
+	padding:0px;
 }
 
 
-button.btn.btn-primary{
-	padding: 15px 80px 15px 80px;
-	margin-top: 20px;
+
+.taotaikhoan {
+    text-align:  center;
+    font-size: 47px;
+    font-weight:  bold;
+}
+
+h5.noiquyDK {
+    padding: 10px 0px 20px 112px;
+}
+
+button.btn.btn-warning {
+    margin-left: 80px;
 }
 
 
-button.btn.btn-danger {
-	padding: 15px 98px 15px 98px;
-	margin-top: 20px;
+button.btn {
+    width: 314px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 65px;
+}
+
+.mota {
+    font-size: 19px;
+    font-family: monospace;
 }

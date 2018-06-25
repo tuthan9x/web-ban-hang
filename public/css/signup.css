@@ -1,29 +1,50 @@
-
-
-.dangki{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 100px;
+*{
+    margin:0px;
+    padding:0px;
 }
 
-button.btn.btn-success{
-    padding: 4px 150px 4px 150px;
-    margin-top: 7px;
-    margin-left: 58px;
-    margin-bottom: 20px;
-
+.taotaikhoan {
+    text-align:  center;
+    font-size:  40px;
+    font-weight:  bold;
+    margin-top: -70px;
+}
 }
 
-button.btn.btn-primary{
-	padding: 10px 150px 10px 150px;
-	margin-top: 20px;
-	margin-left: 58px;
+h5.noiquyDK {
+    padding: 10px 0px 20px 112px;
+    font-size: 15px;
+}
+
+#btn-signup {
+    padding: 10px 34px;
+    width: 315px;
+    background: #a3b322bf;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 
-button.btn.btn-danger {
-	padding: 10px 169px 10px 169px;
-	margin-top: 20px;
-	margin-left: 58px;
+.Dacotk {
+    margin-left: 103px;
+    font-size: 13px;
+}
+
+button.btn {
+    width: 314px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+button#btn-signup {
+    width: 170px;
+    margin-left: 102px;
+}
+
+.mota {
+    font-size: 19px;
+    font-family: monospace;
 }
 
