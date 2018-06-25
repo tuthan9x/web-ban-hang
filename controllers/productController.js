@@ -104,7 +104,8 @@ router.get('/detail/:proID', (req, res) => {
                     brand: brand,
                     detail: detail,
                     product_same_brand: product_same_brand,
-                    product_same_category: product_same_category
+                    product_same_category: product_same_category,
+                    product_available: product.Quantity - product.Sold
                 };
                 res.render('product/detail', vm);
             })
