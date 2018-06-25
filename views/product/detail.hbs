@@ -24,6 +24,8 @@
     </script>
 {{/section}}
 
+
+
 <div class="row">
     <div class="col">
         <div>
@@ -88,7 +90,9 @@
                 </tr>
             </tbody>
         </table>
-        <div class="add-to-cart">
+    {{!-- {{#if layoutVM.isLogged}} --}}
+        <form class="add-to-cart" id="frmAddItem" method="post" action="/checkout/add">
+                <input name="proID" type="hidden" value="{{product.ProID}}">
             <div class="quantity-col">
                 <p class="quantity-label">
                     Số lượng:
@@ -100,11 +104,12 @@
                 </div>
             </div>
             <div class="cart-box">
-                <button type="button" class="btn">
+                <button type="submit" class="btn">
                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                     Thêm vào giỏ hàng</button>
             </div>
-        </div>
+        </form>
+        {{!-- {{/if}} --}}
     </div>
 </div>
 
