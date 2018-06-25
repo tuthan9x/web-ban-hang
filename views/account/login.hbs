@@ -1,0 +1,90 @@
+{{#section 'css'}}
+	<link rel="stylesheet" href="/css/login.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+	
+{{/section}}
+
+{{#section 'js'}}
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript">
+		$('#txtDOB').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+		
+	</script>
+
+	<script type="text/javascript">
+	function()
+	</script>
+{{/section}}
+
+	<div class="jumbotron">
+			<h1>Sign Up</h1>
+			<div class="row">
+				<div class="col-sm-7">
+					<form method="POST" action="" id="frmLogin">
+
+						<div class="form-group">
+							<label for="txtUsername">User Name:</label>
+							<input type="text" class="form-control col-sm-10" id="txtUsername" placeholder="User Name" name="username">
+						</div>
+
+						<div class="form-group">
+							<label for="txtPWD">Password:</label>
+							<input type="password" class="form-control col-sm-10" id="txtPWD" placeholder="Password" name="rawPWD">
+						</div>
+
+						<div class="form-group">
+					        <div class="col-sm-offset-2 col-sm-10">
+					            <label>
+					                <input type="checkbox" name="remember">
+					                Ghi nhớ
+					            </label>
+					        </div>
+    					</div>
+
+    					<div class="form-group">
+							<button type="submit" class="btn btn-warning col-md-offset-4 col-md-8">Submit</button>
+						</div>
+
+						<div class="form-group">
+							<!-- Button -->
+							<div class="col-md-offset-4 col-md-8">
+								<button type="button" class="btn btn-primary">Đăng nhập bằng Facebook</button>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<!-- Button -->
+							<div class="col-md-offset-4 col-md-8">
+								<button type="button" class="btn btn-danger">Đăng nhập Google</button>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<!-- Button -->
+							<div class="col-md-offset-4 col-md-8">
+								<button type="button" class="btn btn-info">Đăng nhập bằng Zalo</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<div class="col-sm-5">
+					<div class="taotaikhoan"><label for="taotaikhoan">Đăng nhập</label></div>
+					<div class="mota">Đăng nhập để theo dõi đơn hàng, lưu 
+						danh sách sản phẩm yêu thích, nhận
+					nhiều ưu đãi hấp dẫn.</div>
+					<img src="/img/graphic-map.png" alt="">
+				</div>
+			</div>
+		</div>
