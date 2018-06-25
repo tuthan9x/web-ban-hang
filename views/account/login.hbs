@@ -1,17 +1,16 @@
 {{#section 'css'}}
 	<link rel="stylesheet" href="/css/login.css">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
 	
 {{/section}}
 
-{{#section 'js'}}
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{{#if showError}}
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Title!</strong> {{errorMsg}}
+</div>
+{{/if}}
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{{#section 'js'}}
 
 
 	<script type="text/javascript">
@@ -25,10 +24,13 @@
 	<script type="text/javascript">
 	function()
 	</script>
+
 {{/section}}
 
 	<div class="jumbotron">
 			<h1>Sign Up</h1>
+			<!-- hiển thị mọi tin nhắn được trả lại từ việc đăng nhập -->
+	        
 			<div class="row">
 				<div class="col-sm-7">
 					<form method="POST" action="" id="frmLogin">
@@ -53,35 +55,37 @@
     					</div>
 
     					<div class="form-group">
-							<button type="submit" class="btn btn-warning col-md-offset-4 col-md-8">Submit</button>
+							<button type="submit" class="btn btn-warning col-md-offset-4 col-md-8 login">Submit</button>
 						</div>
 
 						<div class="form-group">
 							<!-- Button -->
-							<div class="col-md-offset-4 col-md-8">
-								<button type="button" class="btn btn-primary">Đăng nhập bằng Facebook</button>
+							<div class=" col-md-offset-4 col-md-8">
+								<button type="button" class="btn btn-primary MangXaHoi"><i class="fa fa-facebook-square" style="margin-right:10px;"></i>Đăng nhập bằng Facebook</button>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<!-- Button -->
 							<div class="col-md-offset-4 col-md-8">
-								<button type="button" class="btn btn-danger">Đăng nhập Google</button>
+								<button type="button" class="btn btn-danger MangXaHoi"><i class="fa fa-google" style="margin-right:10px;"></i>Đăng nhập Google</button>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<!-- Button -->
-							<div class="col-md-offset-4 col-md-8">
-								<button type="button" class="btn btn-info">Đăng nhập bằng Zalo</button>
+							<div class=" col-md-offset-4 col-md-8">
+								<button type="button" class="btn btn-info MangXaHoi"><i><img src="/img/zalo.png" style="width: 32px;height: 29px;margin-right: 4px;"></i>Đăng nhập bằng Zalo</button>
 							</div>
 						</div>
+
+						<div class="NotAccount">Need an account?Kích<span style="color:blue;cursor:pointer"><a id="dangky" href="/account/register"> ở đây.</a><a href="/">Or home.</a></span></div>
 
 					</form>
 				</div>
 				<div class="col-sm-5">
-					<div class="taotaikhoan"><label for="taotaikhoan">Đăng nhập</label></div>
-					<div class="mota">Đăng nhập để theo dõi đơn hàng, lưu 
+					<div class="LoginTK"><label for="DN">Đăng nhập</label></div>
+					<div class="motaDN">Đăng nhập để theo dõi đơn hàng, lưu 
 						danh sách sản phẩm yêu thích, nhận
 					nhiều ưu đãi hấp dẫn.</div>
 					<img src="/img/graphic-map.png" alt="">
