@@ -2,7 +2,7 @@ var express = require('express'),
     SHA256 = require('crypto-js/sha256'),
     moment = require('moment');
 
-var flash = require('connect-flash');
+
 
 var accountRepo = require('../repos/accountRepo');
 var restrict = require('../middle-wares/restrict');
@@ -48,12 +48,15 @@ router.post('/login', (req, res) => {
 
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
-            // user = rows[0];
-
             req.session.isLogged = true;
+                req.session.user = rows[0];
+                req.session.cart = [];
 
-
-            res.redirect('/');
+            var url = '/';
+            if (req.query.retUrl) {
+                url = req.query.retUrl;
+            }
+            res.redirect(url);
 
         } else {
             var vm = {
