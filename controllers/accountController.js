@@ -49,8 +49,8 @@ router.post('/login', (req, res) => {
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;
-                req.session.user = rows[0];
-                req.session.cart = [];
+            req.session.user = rows[0];
+            req.session.cart = [];
 
             var url = '/';
             if (req.query.retUrl) {
