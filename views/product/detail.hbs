@@ -57,8 +57,7 @@
             <span class="main-price">
                 {{number_format product.Price}}đ
             </span>
-            {{!--
-            <span class="price-compare">589,000đ</span> --}}
+        
         </p>
         <p class="view">Số lượt xem: {{product.Viewer}}</p>
         <p class="sold">Số lượt bán: {{product.Sold}}</p>
@@ -90,7 +89,6 @@
                 </tr>
             </tbody>
         </table>
-    {{!-- {{#if layoutVM.isLogged}} --}}
         <form class="add-to-cart" id="frmAddItem" method="post" action="/checkout/add">
                 <input name="proID" type="hidden" value="{{product.ProID}}">
             <div class="quantity-col">
@@ -109,7 +107,6 @@
                     Thêm vào giỏ hàng</button>
             </div>
         </form>
-        {{!-- {{/if}} --}}
     </div>
 </div>
 
