@@ -12,17 +12,18 @@
 
 {{#section 'js'}}
 
-
 	<script type="text/javascript">
-		$('#txtDOB').datepicker({
-			format: 'd/m/yyyy',
-			autoclose: true
-		});
-		
-	</script>
-
-	<script type="text/javascript">
-	function()
+	function kiemTraDangNhap(){
+		if(frmDangNhap.username.value==""){
+			alert('Mời bạn nhập tên đăng nhập');
+			return false;
+		}
+		if(frmDangNhap.rawPWD.value==""){
+			alert('Mời bạn nhập password');
+			return false;
+		}
+		return true;
+	}
 	</script>
 
 {{/section}}
@@ -33,7 +34,7 @@
 	        
 			<div class="row">
 				<div class="col-sm-7">
-					<form method="POST" action="" id="frmLogin">
+					<form id="frmDangNhap" method="POST" action="" id="frmLogin">
 
 						<div class="form-group">
 							<label for="txtUsername">User Name:</label>
@@ -55,7 +56,7 @@
     					</div>
 
     					<div class="form-group">
-							<button type="submit" class="btn btn-warning col-md-offset-4 col-md-8 login">Submit</button>
+							<button type="submit" class="btn btn-warning col-md-offset-4 col-md-8 login" onclick="return kiemTraDangNhap()">Submit</button>
 						</div>
 
 						<div class="form-group">
