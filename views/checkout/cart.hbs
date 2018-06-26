@@ -8,22 +8,36 @@
 {{#section 'js'}}
     <script>
         $(".btn-down").click(function(){
-            var value = parseInt($("#qty").attr('value'));
-            var min = parseInt($("#qty").attr('min'));
+            var input = $(this).siblings();
+            var value = parseInt(input.attr('value'));
+            var min = parseInt(input.attr('min'));
             if (value > min) {
                 value--;
-                $("#qty").attr('value', value);
+                input.attr('value', value);
+                var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
+                var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
+                var oldTotal = parseInt($("#sum").attr('value'));
+                var newTotal = oldTotal - price;
+                $('#sum').attr('value', newTotal);
             }
+            
         });
 
         $(".btn-up").click(function(){
-            var value = parseInt($("#qty").attr('value'));
-            var max = parseInt($("#qty").attr('max'));
+            var input = $(this).prev();
+            var value = parseInt(input.attr('value'));
+            var max = parseInt(input.attr('max'));
             if (value < max) {
                 value++;
-                $("#qty").attr('value', value);
-            } //
+                input.attr('value', value);
+                var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
+                var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
+                var oldTotal = parseInt($("#sum").attr('value'));
+                var newTotal = oldTotal + price;
+                $('#sum').attr('value', newTotal);
+            } 
         });
+        
     </script>
 {{/section}}
 
@@ -45,26 +59,26 @@
 			
                 <div class="row">
                     <div class="col-3">
-                        <a href="/product/detail/{{Product.ProID}}" style="background-image: url(./img/{{Product.ProID}}/thumbnail.jpg);" class="col-4 image"></a>
+                        <img href="/product/detail/{{Product.ProID}}" src="/img/{{Product.ProID}}/thumbnail.jpg" alt=""  height="150px" width="150px"></img>
                     
                     </div>
                     <div class="col-9">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-5 mt-3">
                                 <p class="name">
                                     <a href="/product/detail/{{Product.ProID}}" class="effect-underline" style="color:black">{{Product.ProName}}</a>
                                     <div class="mt-5">Xóa</div>
                                 </p>
                             </div>
-                            <div class="col-md-3 mt-2">
-                                <span class="font-weight-bold">{{number_format items.Amount}}
+                            <div class="col-md-3 mt-3">
+                                <span class="font-weight-bold amount">{{number_format Product.Price}}
                                     <u>đ</u>
                                 </span>
                             </div>
-                            <div class="col-md-3 mt-2 ml-3">
+                            <div class="col-md-3 mt-3 ml-3">
                                 <div class="btn-group" role="group">
                                     <button class="btn btn-light btn-down" type="button">-</button>
-                                    <input id="qty" type="tel" name="quantity" value="1" min="1" max="{{Product.Quantity}}" class="form-control input-quantity"
+                                    <input type="tel" name="quantity" value="{{Quantity}}" min="1" max="{{Available}}" class="form-control input-quantity"
                                         style="display: block;">
                                     <button class="btn btn-light btn-up" type="button">+</button>
                                 </div>
@@ -76,15 +90,8 @@
         </div>
          {{/each}} 
     </div>
-    <div class="col-12 col-sm-4">
-        <div class="new same-category" >
-            <h4 class="title"  style="background-color:#02A8F3; color:white; font-size:20px" >TẠM TÍNH</h4>
-            <div class="content">
-                <div id="tamtinh" class="text-right mr-3" style="font-size:24px" ><a>200.000 <strong>đ</strong></a></div>
-                  
-            </div>
-        </div>
-        <div class="new same-brand">
+    <div class="col-12 col-sm-4">     
+        <div class="new same-brand mt-4">
             <h4 class="title" style="background-color:#02A8F3; color:white">THÀNH TIỀN</h4>
             <div class="content">
                 <div class="row">
@@ -92,7 +99,7 @@
 
                     </div>
                     <div class="col">
-                    <div class="text-right mr-3" style="font-size:24px" ><a>200.000 <strong>đ</strong></a></div>
+                    <input class="text-right mr-3 borderless" id="sum" style="font-size:24px" value="{{sum}}"><strong>đ</strong></input>
                      <div class="text-right mr-3"><a>(Đã bao gồm VAT)</a></div>
                     </div>
                    
