@@ -19,16 +19,20 @@ router.get('/', (req, res) => {
 		console.log(result);
 		for (var i = result.length - 1; i >= 0; i--) {
 		var pro = result[i];
+		var sum = 0;
 		var item = {
 				Product: pro,
 				Quantity: req.session.cart[i].Quantity,
-				Amount: pro.Price * req.session.cart[i].Quantity
+				Amount: pro.Price,
+				Available: pro.Quantity-pro.Sold
 			};
 			items.push(item);
+			sum += req.session.cart[i].Quantity * pro.Price;
 		}
 
 		var vm = {
-			items: items
+			items: items,
+			sum: sum
 		};
 		res.render('checkout/cart', vm);
 	});
