@@ -42,6 +42,17 @@
                         <a class="nav-link" href="/checkout">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Giỏ hàng</a>
                     </li>
+                    {{#if layoutVM.isLogged}}
+                    <form id="frmLogout" method="post" action="/account/logout"></form>
+                    <span class="VaoDN fa fa-user" style="color:white;margin-left:10px;margin-top:10px;font-size: 18px;">Xin chào {{layoutVM.curUser.f_Name}} </span>
+                    <li class="dropdown Login" style="margin-top: 10px;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="color: black;">
+                            <li><a href="/account/profile">Profile</a></li>
+                            <li><a id="lnkLogout" href="javascript:;">Logout</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
                     <li class="nav-item">
                         <a class="nav-link" href="/account/login">
                             <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Đăng nhập</a>
@@ -50,6 +61,7 @@
                         <a class="nav-link" href="/account/register">
                             <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Đăng ký</a>
                     </li>
+                    {{/if}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarSupport" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -226,6 +238,12 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $('#lnkLogout').on('click', function() {
+            $('#frmLogout').submit();
+        });
+    </script>
     {{{_sections.js}}}
 </body>
 
