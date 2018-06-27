@@ -76,3 +76,8 @@ exports.search = (key) => {
     var sql = "select * from products where ProName like '%" + `${key}` + "%'";
     return db.load(sql);
 }
+
+exports.count = () => {
+    var sql = "select count(*) as soluong from products";
+    return db.load(sql);
+}

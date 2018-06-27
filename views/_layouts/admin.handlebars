@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard Admin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="/admin/css/fontastic.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="/admin/css/jquery.mCustomScrollbar.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/admin/css/style.css" id="theme-stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    {{{_sections.css}}}
+</head>
+ 
+<body>
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+        <div class="side-navbar-wrapper">
+            <!-- Sidebar Header    -->
+            <div class="sidenav-header d-flex align-items-center justify-content-center">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center">
+                    <h2 class="h5">Shop Posh</h2>
+                </div>
+                <!-- Small Brand information, appears on minimized sidebar-->
+                <div class="sidenav-header-logo">
+                    <a href="/admin" class="brand-small text-center">
+                        <strong>A</strong>
+                        <strong class="text-success">D</strong>
+                    </a>
+                </div>
+            </div>
+            <!-- Sidebar Navigation Menus-->
+            <div class="main-menu">
+                <h5 class="sidenav-heading">Main</h5>
+                <ul id="side-main-menu" class="side-menu list-unstyled">
+                    <li>
+                        <a href="/admin">
+                            <i class="icon-home"></i>Trang chủ </a>
+                    </li>
+                    <li>
+                        <a href="/admin/brand">
+                            <i class="fa fa-bar-chart"></i>Thương hiệu </a>
+                    </li>
+                    <li>
+                        <a href="/admin/category">
+                            <i class="fa fa-bar-chart"></i>Loại sản phẩm </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-grid"></i>Sản phẩm </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-interface-windows"></i>Đơn hàng </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page">
+        <!-- navbar-->
+        <header class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <div class="navbar-header">
+                            <a id="toggle-btn" href="#" class="menu-btn">
+                                <i class="icon-bars"> </i>
+                            </a>
+                            <a href="/admin" class="navbar-brand">
+                                <div class="brand-text d-none d-md-inline-block">
+                                    <span>Admin </span>
+                                    <strong class="text-success">Dashboard</strong>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                            <!-- Log out-->
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link logout">
+                                    <span class="d-none d-sm-inline-block">Logout</span>
+                                    <i class="fa fa-sign-out"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Counts Section -->
+        <section class="dashboard-counts section-padding">
+            <div class="container-fluid">
+                {{{body}}}
+            </div>
+        </section>
+        <!-- Header Section-->
+        <footer class="main-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Shop Post &copy; 2018</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- JavaScript files-->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+     crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+     crossorigin="anonymous"></script>
+    <script src="/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Main File-->
+    <script src="/admin/js/main.js"></script>
+    {{{_sections.js}}}
+</body>
+ 
+</html>
