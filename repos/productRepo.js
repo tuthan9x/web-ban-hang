@@ -57,13 +57,18 @@ exports.single = (proID) => {
     });
 }
 
+exports.get = (proID) => {
+    var sql = `select * from products where ProID = ${proID}`;
+    return db.load(sql);
+}
+
 exports.randomSameCategory = catID => {
-    var sql = `select * from products where CatID = ${catID} order by RAND() LIMIT 2`;
+    var sql = `select * from products where CatID = ${catID} order by RAND() LIMIT ${config.LIMIT_SAME}`;
     return db.load(sql);
 }
 
 exports.randomSameBrand = brandID => {
-    var sql = `select * from products where BrandID = ${brandID} order by RAND() LIMIT 2`;
+    var sql = `select * from products where BrandID = ${brandID} order by RAND() LIMIT ${config.LIMIT_SAME}`;
     return db.load(sql);
 }
 
