@@ -296,3 +296,40 @@ CREATE TABLE `users` (
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'admin', 'webbanhang', 'Hoàng Thu Hằng', 'hangmoon322@gmail.com', '1997-12-25', 1);
 INSERT INTO `users` VALUES (2, 'khachhang', 'khachhang123', 'Đỗ Linh Chi', 'linhchi4ever@gmail.com', '1997-10-20', 0);
+
+-- ----------------------------
+-- Table structure for `orderdetails`
+-- ----------------------------
+DROP TABLE IF EXISTS `orderdetails`;
+CREATE TABLE `orderdetails` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `OrderID` int(11) NOT NULL,
+  `ProID` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Price` bigint(20) NOT NULL,
+  `Amount` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of orderdetails
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `orders`
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `OrderID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `OrderDate` datetime NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `Address` varchar(50) NOT NULL,
+  `Total` bigint(20) NOT NULL,
+  PRIMARY KEY (`OrderID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+
+-- ----------------------------
