@@ -10,6 +10,7 @@ var MySQLStore = require('express-mysql-session')(session);
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
     handle404MDW = require('./middle-wares/handle404');
+    restrict=require('./middle-wares/restrict')
 
 var homeController = require('./controllers/homeController'),
     productController = require('./controllers/productController'),
@@ -46,7 +47,7 @@ var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '12337788',
+    password: '',
     database: 'db_banhang',
     createDatabaseTable: true,
     schema: {

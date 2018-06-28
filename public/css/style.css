@@ -291,8 +291,9 @@ a:hover {
 }
 
 .Login ul.dropdown-menu {
-    background: #e4de1d;
+    background: white;
     margin-left: -72px;
-    color:  black;
-    padding-left: 54px;
+    font-color:  black;
+    font-size: 20px;
+    padding-left: 35px;
 }

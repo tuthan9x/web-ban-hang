@@ -2,12 +2,6 @@
 Đăng ký
 {{/section}}
 
-{{#section 'css'}}
-<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-<link rel="stylesheet" type="text/css" href="/css/signup.css">
-
-{{/section}}
-
 {{#if showError}}
 <div class="alert alert-danger">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -15,14 +9,23 @@
 </div>
 {{/if}}
 
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/signup.css">
+
+{{/section}}
+
 
 {{#section 'js'}}
 <!-- jQuery library -->
 
 	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-	<script>
+
+	<script type="text/javascript">
 	        $('#txtDOB').datepicker({
-	        uiLibrary: 'bootstrap4'
+	        format:'d/m/yyyy',
+	        autoclose:true
 	        });
 	</script>
 
@@ -104,7 +107,7 @@
 
 
 <div class="jumbotron">
-			<h1>Sign up</h1>
+			<h1>Sign Up</h1>
 			<div class="row">
 				<div class="col-sm-7">
 					<form id="frmDangKy" action="" method="POST" role="form">
@@ -127,7 +130,7 @@
 						<div class="form-group">
 							<label for="txtCPWD">Re-Type:</label>
 
-							<input type="repassword" class="form-control col-sm-10" id="txtCPWD" name="cPWD" placeholder="Re-Type Password">
+							<input type="password" class="form-control col-sm-10" id="txtCPWD" name="cPWD" placeholder="Re-Type Password">
 							<p id="thongbao2" style="display:none">Nhập lại password</p>
 							<p id="thongbao3" style="display:none">Password nhập không chính xác.Mời bạn nhập lại password</p>
 
@@ -150,10 +153,9 @@
 						</div>
 
 						<div class="form-group">
-							<label for="txtDOB"">Ngày Sinh:</label>
-
+							<label for="txtDOB">Ngày Sinh:</label>
 							
-							<input type="text/javascript" class="form-control col-sm-10" id="txtDOB" placeholder="d/m/yyyy" name="dob"/>
+							<input type="text" class="form-control col-sm-10" id="txtDOB" placeholder="d/m/yyyy" name="dob"/>
 
 						</div>     
 

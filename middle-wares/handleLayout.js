@@ -14,7 +14,6 @@ module.exports = (req, res, next) => {
             brands : brandRows,
             isLogged:req.session.isLogged,
             curUser:req.session.user
-
         };
         next();
     });

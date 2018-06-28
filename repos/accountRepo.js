@@ -10,9 +10,10 @@ exports.login = user => {
     return db.load(sql);
 }
 
-exports.single = (id) => {
+
+exports.single = id => {
     return new Promise((resolve, reject) => {
-        var sql = `select * from users where f_Username = ${user.username}`;
+        var sql = `select * from users where f_ID = ${id}`;
         db.load(sql).then(rows => {
             if (rows.length === 0) {
                 resolve(null);
@@ -24,4 +25,9 @@ exports.single = (id) => {
             reject(err);
         });
     });
+}
+
+exports.update = user => {
+    var sql=`update users set f_Password='${user.password}', f_Name='${user.name}', f_Email='${user.email}',f_DOB='${user.dob}' where f_ID = ${user.id}`;
+    return db.save(sql);
 }

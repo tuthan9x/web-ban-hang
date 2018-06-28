@@ -1,7 +1,63 @@
 {{#section 'css'}}
     <link rel="stylesheet" href="/css/manager.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
     
 {{/section}}
+
+{{#section 'js'}}
+    <script>
+        document.getElementsByClassName("container")[0].className = "container-fluid m-0";
+    </script>
+
+    <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script type="text/javascript">
+            $('#txtDOB').datepicker({
+            format:'d/m/yyyy',
+            autoclose:true
+            });
+    </script>
+
+    <script type="text/javascript">
+    function kiemTraUpdate(){
+        if(frmProfile.name.value=="" || frmProfile.email.value=="" || frmProfile.dob.value==""){
+            alert('Vui lòng nhập đầy đủ thông tin');
+            return false;
+        }
+        if (document.getElementById("changepw").checked){
+            if(frmProfile.new_password.value==""){
+                alert('Vui lòng nhập password mới.')
+            }
+
+            if(frmProfile.new_password.value!=frmProfile.re_new_password.value){
+                alert('Password không trùng khớp')
+            }
+        }
+        return true;
+    }
+    </script>
+
+    <script type="text/javascript">
+    function kiemTra(){
+        var kiemTra=document.getElementById("frm");
+        if (document.getElementById("changepw").checked){
+            kiemTra.style.display="block";
+        }
+        else{
+            kiemTra.style.display="none";
+        }
+    };
+</script>
+
+{{/section}}
+
+{{#if showError}}
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> {{errorMsg}}
+</div>
+{{/if}}
 
 <div class="row">
         <div class="col-md-2 pl-5">
@@ -11,13 +67,13 @@
             </div>
             <ul class="dropdown-menu menu">
                 <li class="active">
-                    <a href="./info.html">
+                    <a href="/account/profile">
                         <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
                         <span>Thông tin tài khoản</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./listorder.html">
+                    <a href="/checkout">
                         <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                         <span>Quản lý giỏ hàng</span>
                     </a>
@@ -40,70 +96,63 @@
                         <span>Lịch sử mua hàng</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
-                        <span>Sản phẩm yêu thích</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
-                        <span>Nhận xét của tôi</span>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="col-md-10 pr-5">
             Thông tin tài khoản
             <br>
-            <form class="pl-3 bg-white pb-3 mb-3">
+            <form class="pl-3 bg-white pb-3 mb-3" id="frmProfile" action="" method="POST" role="form">
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputFirstName">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="inputFirstName" placeholder="{{layoutVM.curUser.f_Username}}" aria-describedby="firstNameHelpBlock">
-                        <small id="firstNameHelpBlock" class="form-text text-muted">
-                            Vui lòng nhập thông tin này
-                        </small>
+                        <div class="form-group col-md-4">
+                            <label for="inputUserName">Tên đăng nhập:</label>
+                            <input type="text" class="form-control" id="inputUserName" name="username" value="{{layoutVM.curUser.f_Username}}" aria-describedby="firstNameHelpBlock" readonly >
+                            
+                        </div>
+                        <div class="form-group col-md-4 offset-md-2">
+                            <label for="inputFullName">Họ Tên</label>
+                            <input type="text" class="form-control" id="inputFullName" name="name" value="{{layoutVM.curUser.f_Name}}" aria-describedby="lastNameHelpBlock">
+                            
+                        </div>
                     </div>
-                    <div class="form-group col-md-4 offset-md-2">
-                        <label for="inputLastName">Họ Tên</label>
-                        <input type="text" class="form-control" id="inputLastName" placeholder="{{layoutVM.curUser.f_Name}}" aria-describedby="lastNameHelpBlock">
-                        <small id="lastNameHelpBlock" class="form-text text-muted">
-                            Vui lòng nhập thông tin này
-                        </small>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="email">Emạil</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{layoutVM.curUser.f_Email}}">
+                            
+                        </div>
+                        <div class="form-group col-md-4 offset-md-2">
+                            <label for="txtDOB">Ngày Sinh</label>
+                            
+                            <input type="text" class="form-control" id="txtDOB" value="{{layoutVM.curUser.f_DOB}}" name="dob">
+
+                        </div> 
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="selectGender">Giới tính</label>
-                        <select class="form-control" id="selectGender" aria-describedby="genderHelpBlock">
-                            <option>Nam</option>
-                            <option>Nữ</option>
-                        </select>
-                        <small id="genderHelpBlock" class="form-text text-muted">
-                            Vui lòng nhập thông tin này
-                        </small>
+
+                    <div class="changePW" id="frmMKM">
+                        <input type="checkbox" id="changepw" name="changepw" value="checked" onclick="kiemTra()">Thay đổi password
+
+                        <div id="frm" class="password-group" style="display: none;width:400px;">
+
+                            <div class="form-group">
+                                <label class="control-label" for="new-password">Mật khẩu mới</label>
+                                <div class="input-wrap">
+                                    <input type="password" name="new_password" class="form-control" id="new_password" value="" autocomplete="off" placeholder="Mật khẩu từ 6 đến 32 ký tự">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="re_new_password">Nhập lại</label>
+                                <div class="input-wrap">
+                                    <input type="password" name="re_new_password" class="form-control" id="re_new_password" value="" autocomplete="off" placeholder="Nhập lại mật khẩu mới">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="form-group col-md-4 offset-md-2">
-                        <label for="inputDateofBirth">Ngày sinh</label>
-                        <input type="date" class="form-control" id="inputDateofBirth" aria-describedby="dateofBirthHelpBlock">
-                        <small id="dateofBirthHelpBlock" class="form-text text-muted">
-                            Vui lòng nhập thông tin này
-                        </small>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="email">Emạil</label>
-                        <input type="email" class="form-control" id="email" placeholder="{{layoutVM.curUser.f_Email}}">
-                    </div>
-                    <div class="form-group col-md-4 offset-md-2">
-                        <label for="inputAddress">Địa chỉ</label>
-                        <input type="text" class="form-control" id="inputAddress">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-outline-primary">Cập nhật</button>
+                <input type="hidden" class="form-control" name="id" value="{{layoutVM.curUser.f_ID}}">
+                <button type="submit" class="btn btn-outline-primary" role="button" onclick="return kiemTraUpdate()">Cập nhật</button>
             </form>
             Liên kết mạng xã hội
             <ul class="list-group">
