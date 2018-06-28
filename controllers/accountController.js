@@ -60,6 +60,7 @@ router.post('/login', (req, res) => {
             else {
                 req.session.isLogged = true;
                 req.session.user = rows[0];
+                req.session.cart = [];
                 res.redirect('/admin');
             }
 
