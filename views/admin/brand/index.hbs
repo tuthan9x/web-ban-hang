@@ -1,0 +1,28 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Tên</th>
+			<th scope="col">&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each brands}}
+		<tr>
+			<th scope="row">{{@index}}</th>
+			<td>{{BrandName}}</td>
+			<td class="text-right">
+				<a class="btn btn-danger" href="/admin/brand/delete?id={{BrandID}}" role="button">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+				</a>
+				<a class="btn btn-primary" href="/admin/brand/edit?id={{BrandID}}" role="button">
+					<i class="fa fa-pencil" aria-hidden="true"></i>
+				</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<a class="btn btn-large btn-block btn-outline-success" href="/admin/brand/add" role="button">
+	Thêm danh mục mới
+</a>
