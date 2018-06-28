@@ -86,15 +86,15 @@
                                 </div>
                             </a>
                         </div>
-                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <form method="POST" action="/account/logout" class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <!-- Log out-->
                             <li class="nav-item">
-                                <a href="javascript:;" class="nav-link logout">
+                                <button type="submit" class="nav-link logout btn btn-dark" style="background-color: #393836;">
                                     <span class="d-none d-sm-inline-block">Logout</span>
                                     <i class="fa fa-sign-out"></i>
-                                </a>
+                                </button>
                             </li>
-                        </ul>
+                        </form>
                     </div>
                 </div>
             </nav>
