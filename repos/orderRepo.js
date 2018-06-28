@@ -20,3 +20,25 @@ exports.single = (OrderId) => {
         });
     });
 }
+ exports.addorder =(Order)=>{
+     var sql = `INSERT INTO orders VALUES('${Order.Id}','NOW()','${Order.userId}','${Order.address}','${Order.total}')`;
+     return db.save(sql);
+
+}
+
+exports.addorderdetail = detail => {
+    var sql = `INSERT INTO orderdetails VALUES('${detail.Id}', '${detail.OrderId}','${detail.proId}', '${ct.quantity}', '${ct.price}','${detail.sum}')`;
+    return db.save(sql);
+}
+
+exports.add = (cart, item) => {
+    for (i = cart.length - 1; i >= 0; i--) {
+        if (cart[i].proId === item.proId) {
+            cart[i].quantity += item.quantity;
+            return;
+        }
+       
+    }
+    cart.push(item);
+}
+
