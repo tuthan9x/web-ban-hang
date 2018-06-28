@@ -5,21 +5,19 @@ var cartRepo = require('../repos/cartRepo'),
 var router = express.Router();
 
 
-
 router.get('/', (req, res) => {
 	var arr_p = [];
 	for (var i = 0; i < req.session.cart.length; i++) {
-		var cartItem = req.session.cart[i];
+        var cartItem = req.session.cart[i];
 		var p = productRepo.single(cartItem.ProId);
-		arr_p.push(p);
-	}
+        arr_p.push(p);
+    }
 
 	var items = [];
 	Promise.all(arr_p).then(result => {
-		console.log(result);
+		var sum = 0;
 		for (var i = result.length - 1; i >= 0; i--) {
 		var pro = result[i];
-		var sum = 0;
 		var item = {
 				Product: pro,
 				Quantity: req.session.cart[i].Quantity,
@@ -43,7 +41,7 @@ router.post('/add', (req, res) => {
 		ProId: req.body.proID,
 		Quantity: +req.body.quantity
 	};
-	console.log(req.session);
+	
 	cartRepo.add(req.session.cart, item);
 	res.redirect('/checkout');
 });
