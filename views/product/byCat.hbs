@@ -100,39 +100,35 @@
                 </div>
             {{else}}
                 {{#each products}}
-                <div class="col-md-3 col-sm-4 pb-3">
-                    <div class="card text-left product-box">
-                        <a href="/product/detail/{{ProID}}">
-                            <img class="img-fluid" src="/img/{{ProID}}/thumbnail.jpg">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="/product/detail/{{ProID}}">{{ProName}}</a>
-                            </h5>
-                            <p class="card-text mb-0">
-                                <span class="font-weight-bold">{{number_format Price}}
-                                    <u>đ</u>
-                                </span>
-                                {{!-- <small class="font-weight-light">
-                                    <del>589,000&nbsp;
-                                        <u>đ</u>
-                                    </del>
-                                </small>
-                                <span class="sale-tag">-49%</span> --}}
-                            </p>
-                            <p class="mb-0">
-                                <span class="fa fa-star checked rating"></span>
-                                <span class="fa fa-star checked rating"></span>
-                                <span class="fa fa-star checked rating"></span>
-                                <span class="fa fa-star checked rating"></span>
-                                <span class="fa fa-star rating"></span>
-                            </p>
-                            <a href="#" class="btn btn-outline-success btn-sm mr-1" role="button">Mua Ngay</a>
-                            <a href="/product/detail/{{ProID}}" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
+                <form class="col-md-3 col-sm-4 pb-3" action="/checkout/add" method="POST">
+					<div class="card text-left product-box">
+						<a href="/product/detail/{{ProID}}">
+							<img class="img-fluid" src="/img/{{ProID}}/thumbnail.jpg">
+						</a>
+						<div class="card-body">
+							<h5 class="card-title">
+								<a href="/product/detail/{{ProID}}">{{ProName}}</a>
+							</h5>
+							<p class="card-text mb-0">
+								<span class="font-weight-bold">{{number_format Price}}
+									<u>đ</u>
+								</span>
+							</p>
+							<p class="mb-0">
+								<span class="fa fa-star checked rating"></span>
+								<span class="fa fa-star checked rating"></span>
+								<span class="fa fa-star checked rating"></span>
+								<span class="fa fa-star checked rating"></span>
+								<span class="fa fa-star rating"></span>
+							</p>
+							<input name="proID" type="hidden" value="{{ProID}}">
+							<input id="qty" type="tel" name="quantity" value="1" min="1" max="1" class="form-control input-quantity" style="display: none;">
+							<button class="btn btn-outline-success btn-sm mr-1" type="submit" role="button">Mua Ngay</button>
+							<a href="/product/detail/{{ProID}}" class="btn btn-outline-primary btn-sm ml-1 hidden" role="button">Xem Chi Tiết</a>
+						</div>
+					</div>
+				</form>                
+				{{/each}}
             {{/if}}
 		</div>
 		{{#unless noProducts}}

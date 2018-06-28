@@ -1,0 +1,21 @@
+{{#if showAlert}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Thêm thành công
+</div>
+{{/if}}
+
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">Tên</label>
+		<input type="text" class="form-control" id="" name="BrandName" placeholder="Tên loại thương hiệu">
+	</div>
+	<a class="btn btn-outline-secondary" href="/admin/brand" role="button">
+		<i class="fa fa-arrow-left" aria-hidden="true"></i>
+		View list
+	</a>
+	<button type="submit" class="btn btn-success">
+		<i class="fa fa-check" aria-hidden="true"></i>
+		Save
+	</button>
+</form>
