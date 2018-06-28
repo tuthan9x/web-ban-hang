@@ -20,3 +20,8 @@ exports.single = (id) => {
         });
     });
 }
+
+exports.count = () => {
+    var sql = `select count(*) as soluongth from brands`;
+    return db.load(sql);
+}
