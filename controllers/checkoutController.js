@@ -43,7 +43,22 @@ router.post('/add', (req, res) => {
 	cartRepo.add(req.session.cart, item);
 	res.redirect('/checkout');
 });
-
+router.post('/addOne', (req, res) => {
+	var item = {
+		ProId: req.body.proID,
+		Quantity: +1
+	};
+	cartRepo.add(req.session.cart, item);
+	res.redirect('/checkout');
+});
+router.post('/subOne', (req, res) => {
+	var item = {
+		ProId: req.body.proID,
+		Quantity: -1
+	};
+	cartRepo.add(req.session.cart, item);
+	res.redirect('/checkout');
+});
 router.post('/remove', (req, res) => {
 	cartRepo.remove(req.session.cart, req.body.ProId);
 	res.redirect(req.headers.referer);
