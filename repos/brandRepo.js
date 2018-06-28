@@ -20,8 +20,21 @@ exports.single = (id) => {
         });
     });
 }
+exports.add = (c) => {
+    var sql = `insert into brands(BrandName) values('${c.BrandName}')`;
+    return db.save(sql);
+}
 
+exports.delete = (id) => {
+    var sql = `delete from brands where BrandID = ${id}`;
+    return db.save(sql);
+}
+
+exports.update = (b) => {
+    var sql = `update brands set BrandName = '${b.BrandName}' where BrandID = ${b.BrandID}`;
+    return db.save(sql);
+}
 exports.count = () => {
-    var sql = `select count(*) as soluongth from brands`;
+    var sql = "select count(*) as soluongth from brands";
     return db.load(sql);
 }
