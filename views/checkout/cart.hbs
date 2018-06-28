@@ -1,5 +1,5 @@
 {{#section 'title'}}
-	Your Shopping Cart
+	Giỏ hàng của bạn
 {{/section}}
 {{#section 'css'}}
 <link rel="stylesheet" type="text/css" href="/css/detail.css"> 
@@ -43,13 +43,6 @@
         });
         
     </script>
-    <script type="text/javascript">
-		$('.removeItem').on('click', function() {
-		    var id = $(this).data('proid');
-		    $('#txtProId_R').val(id);
-		    $('#frmRemoveItem').submit();
-		});
-	</script>
 {{/section}}
 
 
@@ -81,7 +74,10 @@
                             <div class="col-md-5 mt-3">
                                 <p class="name">
                                     <a href="/product/detail/{{Product.ProID}}" class="effect-underline" style="color:black">{{Product.ProName}}</a>
-                                    <a data-proid="{{Product.ProID}}" class="mt-5 removeItem" href="javascript:;" ><span><br><br><br>Xóa</span></a>
+                                    <form id="frmRemoveItem" method="post" action="/checkout/remove">
+                                        <input name="ProId"  value="{{Product.ProID}}" type="hidden">
+                                        <button type="summit" class="btn btn-danger removeItem mt-3" style="width:70px;height:30px" >Xóa</button>
+                                    </form>
                                 </p>
                             </div>
                             <div class="col-md-3 mt-3">
@@ -126,7 +122,8 @@
                         <h5 class="modal-title borderl">
                             <b>Địa chỉ giao hàng</b>
                         </h5>
-                        <input id="add">
+                        <a>Nhập địa chỉ nhận hàng:</a>
+                        <input class="form-control" id="address" placeholder="Ví dụ: 227, Nguyễn Văn Cừ ">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
