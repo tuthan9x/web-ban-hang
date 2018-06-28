@@ -1,60 +1,51 @@
-{{#section 'title'}}
-	Giỏ hàng của bạn
-{{/section}}
-{{#section 'css'}}
-<link rel="stylesheet" type="text/css" href="/css/detail.css"> 
-{{/section}}
-  
-{{#section 'js'}}
-    <script>
-        $(".btn-down").click(function(){
-            var input = $(this).siblings();
-            var value = parseInt(input.attr('value'));
-            var min = parseInt(input.attr('min'));
-            if (value > min) {
-                value--;
-                input.attr('value', value);
-                var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
-                var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
-                var oldTotal = parseInt($("#sum").attr('value'));
-                var newTotal = oldTotal - price;
-                $('#sum').attr('value', newTotal);
-                var textTotal = newTotal.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-                document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
-            }
-            
-        });
+{{#section 'title'}} Giỏ hàng của bạn {{/section}} {{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/css/detail.css"> {{/section}} {{#section 'js'}}
+<script>
+    $(".btn-down").click(function () {
+        var input = $(this).siblings();
+        var value = parseInt(input.attr('value'));
+        var min = parseInt(input.attr('min'));
+        if (value > min) {
+            value--;
+            input.attr('value', value);
+            var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
+            var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
+            var oldTotal = parseInt($("#sum").attr('value'));
+            var newTotal = oldTotal - price;
+            $('#sum').attr('value', newTotal);
+            var textTotal = newTotal.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
+        }
 
-        $(".btn-up").click(function(){
-            var input = $(this).prev();
-            var value = parseInt(input.attr('value'));
-            var max = parseInt(input.attr('max'));
-            if (value < max) {
-                value++;
-                input.attr('value', value);
-                var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
-                var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
-                var oldTotal = parseInt($("#sum").attr('value'));
-                var newTotal = oldTotal + price;
-                $('#sum').attr('value', newTotal);
-                var textTotal = newTotal.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
-                document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
-            } 
-        });
-        
-    </script>
-{{/section}}
+    });
+
+    $(".btn-up").click(function () {
+        var input = $(this).prev();
+        var value = parseInt(input.attr('value'));
+        var max = parseInt(input.attr('max'));
+        if (value < max) {
+            value++;
+            input.attr('value', value);
+            var spanElement = $(this).parent().parent().prev().find('span.amount')[0];
+            var price = parseInt(spanElement.outerText.substr(0, spanElement.outerText.length - 2).replace(/,/g, ''));
+            var oldTotal = parseInt($("#sum").attr('value'));
+            var newTotal = oldTotal + price;
+            $('#sum').attr('value', newTotal);
+            var textTotal = newTotal.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
+        }
+    });
+
+</script> {{/section}}
 
 
 <div class="row product product-bottom">
     <div class="col-12 col-sm-8">
-        <form id="frmRemoveItem" method="post" action="/checkout/remove">
-			<a id="txtProId_R" type="text" name="ProId">
-		</form>
         <div class="row">
             <div class="col">
-                
-                <a href="/home"> << Mua thêm sản phẩm khác</a>
+
+                <a href="/home">
+                    << Mua thêm sản phẩm khác</a>
             </div>
             <div class="col text-right">
                 <a>GIỎ HÀNG</a>
@@ -62,82 +53,91 @@
         </div>
         <ul class="nav nav-tabs mb-3"></ul>
         {{#each items}}
-        <div class="col-md-12 border ">                                                                                                                                                                                                                                                                                                                                                 
-			
-                <div class="row">
-                    <div class="col-3">
-                        <img href="/product/detail/{{Product.ProID}}" src="/img/{{Product.ProID}}/thumbnail.jpg" alt=""  height="150px" width="150px"></img>
-                    
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-md-5 mt-3">
-                                <p class="name">
-                                    <a href="/product/detail/{{Product.ProID}}" class="effect-underline" style="color:black">{{Product.ProName}}</a>
-                                    <form id="frmRemoveItem" method="post" action="/checkout/remove">
-                                        <input name="ProId"  value="{{Product.ProID}}" type="hidden">
-                                        <button type="summit" class="btn btn-danger removeItem mt-3" style="width:70px;height:30px" >Xóa</button>
-                                    </form>
-                                </p>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                                <span class="font-weight-bold amount">{{number_format Product.Price}}
-                                    <u>đ</u>
-                                </span>
-                            </div>
-                            <div class="col-md-3 mt-3 ml-3">
-                                <div class="btn-group" role="group">
-                                    <button class="btn btn-light btn-down" name="down" type="submit">-</button>
-                                    <input id="qty" type="tel" name="quantity" value="{{Quantity}}" min="1" max="{{Available}}" class="form-control input-quantity"style="display: block;">
-                                    <button class="btn btn-light btn-up" name="up" type="submit">+</button>
-                                </div>
-                            </div>
+        <div class="col-md-12 border ">
+
+            <div class="row">
+                <div class="col-3">
+                    <img href="/product/detail/{{Product.ProID}}" src="/img/{{Product.ProID}}/thumbnail.jpg" alt="" height="150px" width="150px"></img>
+
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-md-5 mt-3">
+                            <p class="name">
+                                <a href="/product/detail/{{Product.ProID}}" class="effect-underline" style="color:black">{{Product.ProName}}</a>
+                                <form id="frmRemoveItem" method="post" action="/checkout/remove">
+                                    <input name="ProId" value="{{Product.ProID}}" type="hidden">
+                                    <button type="summit" class="btn btn-danger removeItem mt-3" style="width:70px;height:30px">Xóa</button>
+                                </form>
+                            </p>
+                        </div>
+                        <div class="col-md-3 mt-3">
+                            <span class="font-weight-bold amount">{{number_format Product.Price}}
+                                <u>đ</u>
+                            </span>
+                        </div>
+                        <div class="col-md-3 mt-3 ml-3">
+                            <form class="btn-group" role="group" method="POST" action="/checkout/addOne">
+                                <button class="btn btn-light btn-down" name="down" type="submit" formaction="/checkout/subOne">-</button>
+                                <input name="proID" value="{{Product.ProID}}" type="hidden">
+                                <input id="qty" type="tel" name="quantity" value="{{Quantity}}" min="1" max="{{Available}}" class="form-control input-quantity"
+                                    style="display: block;">
+                                <button class="btn btn-light btn-up" name="up" type="submit">+</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                    
+            </div>
+
         </div>
-         {{/each}} 
+        {{/each}}
     </div>
-    <div class="col-12 col-sm-4">     
+    <div class="col-12 col-sm-4">
         <div class="new same-brand mt-4">
             <h4 class="title" style="background-color:#02A8F3; color:white">THÀNH TIỀN</h4>
             <div class="content">
                 <div class="row">
-                    <div class="col"> 
+                    <div class="col">
                     </div>
                     <div class="col">
-                        <a class="text-right borderless" id="sum" style="font-size:24px" value="{{sum}}">{{number_format sum}}&nbsp;<strong>đ</strong></a>
-                        <div class="text-right mr-4"><a>(Đã bao gồm VAT)</a></div>
+                        <a class="text-right borderless" id="sum" style="font-size:24px" value="{{sum}}">{{number_format sum}}&nbsp;
+                            <strong>đ</strong>
+                        </a>
+                        <div class="text-right mr-4">
+                            <a>(Đã bao gồm VAT)</a>
+                        </div>
                     </div>
-                </div>   
+                </div>
             </div>
         </div>
         <button href="#myModal" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-lg btn-warning mt-5 btn-block ">Tiến hành đặt hàng</button>
         <!-- modal -->
         <div id="myModal" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h5 class="modal-title borderl">
-                            <b>Địa chỉ giao hàng</b>
-                        </h5>
-                        <a>Nhập địa chỉ nhận hàng:</a>
-                        <input class="form-control" id="address" placeholder="Ví dụ: 227, Nguyễn Văn Cừ ">
+                <form class="modal-content" method="POST" action="/checkout/billpay">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thông tin đặt hàng</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title borderl">
+                            <b>Địa chỉ giao hàng</b>
+                        </h5>
+                        <input class="form-control" id="address" name="address" placeholder="Ví dụ: 227 Nguyễn Văn Cừ ">
+                        
+                    </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" >Xác nhận</button>
+                        <button type="submit" class="btn btn-success">Đặt hàng</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Hủy&nbsp;&nbsp;&nbsp;</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <!-- modal -->
-     <div >
+        <div>
 
-</div>
-</div>
+        </div>
+    </div>
 </div>
