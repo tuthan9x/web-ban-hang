@@ -4,7 +4,7 @@ var express = require('express'),
 
 var accountRepo = require('../repos/accountRepo'),
     orderRepo = require('../repos/orderRepo'),
-    orderdetailsRepo = require('../repos/orderdetailsRepo'),
+    orderdetailsRepo = require('../repos/orderdetailsRepo');
 
 var restrict = require('../middle-wares/restrict');
 
