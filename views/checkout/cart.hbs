@@ -15,11 +15,12 @@
             $('#sum').attr('value', newTotal);
             var textTotal = newTotal.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
             document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
+            $('input[name=sum]').attr('value', newTotal);
         }
 
     });
 
-    $(".btn-up").click(function () {
+    $(".btn-up").click(function (e) {
         var input = $(this).prev();
         var value = parseInt(input.attr('value'));
         var max = parseInt(input.attr('max'));
@@ -33,6 +34,10 @@
             $('#sum').attr('value', newTotal);
             var textTotal = newTotal.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
             document.getElementById("sum").innerHTML = textTotal.replace(/\./g, ',');
+            $('input[name=sum]').attr('value', newTotal);
+        }
+        else {
+            e.preventDefault();
         }
     });
 
@@ -100,9 +105,9 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        <a class="text-right borderless" id="sum" style="font-size:24px" value="{{sum}}">{{number_format sum}}&nbsp;
+                        <input class="text-right borderless" id="sum" style="font-size:24px" readonly value="{{sum}}">{{number_format sum}}&nbsp;
                             <strong>đ</strong>
-                        </a>
+                        </input>
                         <div class="text-right mr-4">
                             <a>(Đã bao gồm VAT)</a>
                         </div>
@@ -130,7 +135,7 @@
                             <b>SĐT</b>
                         </h5>
                         <input class="form-control" id="phone" name="phone">
-                        
+                        <input name="sum" style="font-size:24px" type="hidden" value="{{sum}}">&nbsp;</input>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Đặt hàng</button>
