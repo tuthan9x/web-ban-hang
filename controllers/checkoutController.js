@@ -97,6 +97,7 @@ router.post('/billpay', (req, res) => {
 						proId: pro.ProID,
 						avai:pro.Quantity-itemsquanti[i],
 						soldup:pro.Sold+itemsquanti[i],
+						proName: pro.ProName,
 						quantity: itemsquanti[i],
 						price: pro.Price,
 						sum: pro.Price * itemsquanti[i]
@@ -112,6 +113,6 @@ router.post('/billpay', (req, res) => {
 
 
     orderRepo.removeall(req.session.cart);
-    res.redirect('order');
+    res.redirect('/account/history');
 });
 module.exports = router;
