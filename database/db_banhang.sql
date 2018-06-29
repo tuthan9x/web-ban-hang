@@ -333,3 +333,5 @@ CREATE TABLE `orders` (
 -- ----------------------------
 
 -- ----------------------------
+
+ALTER TABLE orders ADD Phone VARCHAR(20) NOT NULL
