@@ -57,7 +57,7 @@
 
             <div class="row">
                 <div class="col-3">
-                    <img href="/product/detail/{{Product.ProID}}" src="/img/{{Product.ProID}}/thumbnail.jpg" alt="" height="150px" width="150px"></img>
+                    <a href="/product/detail/{{Product.ProID}}"> <img src="/img/{{Product.ProID}}/thumbnail.jpg" alt="" height="150px" width="150px"></img></a>
 
                 </div>
                 <div class="col-9">
@@ -113,7 +113,7 @@
         <button href="#myModal" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-lg btn-warning mt-5 btn-block ">Tiến hành đặt hàng</button>
         <!-- modal -->
         <div id="myModal" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog " role="document">
                 <form class="modal-content" method="POST" action="/checkout/billpay">
                     <div class="modal-header">
                         <h5 class="modal-title">Thông tin đặt hàng</h5>
@@ -126,6 +126,10 @@
                             <b>Địa chỉ giao hàng</b>
                         </h5>
                         <input class="form-control" id="address" name="address" placeholder="Ví dụ: 227 Nguyễn Văn Cừ ">
+                          <h5 class="modal-title borderl mt-3">
+                            <b>SĐT</b>
+                        </h5>
+                        <input class="form-control" id="phone" name="phone">
                         
                     </div>
                     <div class="modal-footer">
