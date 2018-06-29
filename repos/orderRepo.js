@@ -35,7 +35,7 @@ exports.upsold =(Order)=>{
     return db.save(sql);
 }
 exports.addbilldetail = detail => {
-    var sql = `INSERT INTO orderdetails(OrderID,ProID,Quantity,Price,Amount) VALUES('${detail.orderId}','${detail.proId}', '${detail.quantity}', '${detail.price}','${detail.sum}')`;
+    var sql = `INSERT INTO orderdetails(OrderID,ProID,ProName,Quantity,Price,Amount) VALUES('${detail.orderId}','${detail.proId}', '${detail.proName}'  , '${detail.quantity}', '${detail.price}','${detail.sum}')`;
     return db.save(sql);
 }
 
@@ -62,4 +62,9 @@ exports.add = (cart, item) => {
        
     }
     cart.push(item);
+}
+
+exports.loadByUser = userID => {
+    var sql = `select * from orders where UserID = ${userID}`;
+    return db.load(sql);
 }
