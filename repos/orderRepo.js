@@ -21,19 +21,19 @@ exports.single = (OrderId) => {
     });
 }
  exports.addbill =(Order)=>{
-     var sql = `INSERT INTO orders(OrderDate,UserID,Address,Total,Phone) VALUES('NOW()','${Order.userId}','${Order.address}','${Order.total}','${Order.phone}')`;
+     var sql = `INSERT INTO orders(OrderDate, UserID,Address,Total,Phone) VALUES(NOW(),'${Order.userID}','${Order.address}','${Order.total}','${Order.phone}')`;
      return db.save(sql);
 
 }
 
 exports.addbilldetail = detail => {
-    var sql = `INSERT INTO orderdetails(OrderID,ProID,Quantity,Price,Amount) VALUES('${detail.OrderId}','${detail.proId}', '${detail.quantity}', '${detail.price}','${detail.sum}')`;
+    var sql = `INSERT INTO orderdetails(OrderID,ProID,Quantity,Price,Amount) VALUES('${detail.orderId}','${detail.proId}', '${detail.quantity}', '${detail.price}','${detail.sum}')`;
     return db.save(sql);
 }
 
-exports.getbillid=email=>{
-    var sql=`SELECT details.OrderID as ID FROM details where Phone='${phone}' `;
-    return db.save(sql);
+exports.getIDBill = userID =>{
+    var sql=`SELECT orders.OrderID as ID FROM orders where UserID = '${userID}' `;
+    return db.load(sql);
 
 }
 
