@@ -2,7 +2,10 @@ var express = require('express'),
     SHA256 = require('crypto-js/sha256'),
     moment = require('moment');
 
-var accountRepo = require('../repos/accountRepo');
+var accountRepo = require('../repos/accountRepo'),
+    orderRepo = require('../repos/orderRepo'),
+    orderdetailsRepo = require('../repos/orderdetailsRepo'),
+
 var restrict = require('../middle-wares/restrict');
 
 var router = express.Router();
@@ -116,6 +119,34 @@ router.post('/logout', (req, res) => {
     req.session.user = null;
     req.session.cart = [];
     res.redirect('/');
+});
+
+router.get('/history', restrict, (req, res) => {
+    var orders = orderRepo.loadByUser(req.session.user.f_ID);
+    var list_order = []
+    Promise.all([orders]).then(([rows]) => {
+        for (let i = 0;i < rows.length; i++) {
+            var order = orderdetailsRepo.singleID(rows[i].OrderID);
+            list_order.push(order);
+        }
+        Promise.all(list_order).then(list => {
+            var items = rows;
+            for (let j = 0;j < rows.length; j++) {
+                var item = [];
+                list.forEach(element => {
+                    for (let i = 0;i < element.length; i++) {
+                        if (element[i].OrderID == rows[j].OrderID) {
+                            console.log(element[i])
+                            item.push(element[i]);
+                        }
+                    }
+                })
+                items[j]['item'] = item;
+                items[j].OrderDate = items[j].OrderDate.getDate() + '/' + items[j].OrderDate.getMonth() + '/' + (items[j].OrderDate.getYear() + 1900); 
+            }
+            res.render('account/history', {items: items});
+        })
+    })
 });
 
 module.exports = router;
