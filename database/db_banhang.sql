@@ -39,7 +39,7 @@ INSERT INTO `brands` VALUES (4, 'SimpleCarry');
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `ProID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `ProName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ProName` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `Description` text COLLATE utf8_unicode_ci NOT NULL,
   `Price` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
