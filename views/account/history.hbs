@@ -1,0 +1,86 @@
+{{#section 'css'}}
+    <link rel="stylesheet" href="/css/manager.css">
+{{/section}}
+
+{{#section 'js'}}
+    <script>
+        document.getElementsByClassName("container")[0].className = "container-fluid m-0";
+    </script>
+{{/section}}
+
+<div class="row">
+    <div class="col-md-2 pl-5">
+        <div>
+            Chào bạn
+            <span class="font-weight-bold">{{layoutVM.curUser.f_Name}}</span>
+        </div>
+        <ul class="dropdown-menu menu">
+            <li class="active">
+                <a href="/account/profile">
+                    <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+                    <span>Thông tin tài khoản</span>
+                </a>
+            </li>
+            <li>
+                <a href="/checkout">
+                    <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                    <span>Quản lý giỏ hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                    <span>Địa chỉ thanh toán</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                    <span>Thông tin thanh toán</span>
+                </a>
+            </li>
+            <li>
+                <a href="/account/history">
+                    <i class="fa fa-history fa-lg" aria-hidden="true"></i>&nbsp;
+                    <span>Lịch sử mua hàng</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-10 pr-5">
+        {{#each items}}
+        <div class="border bg-white mb-2">
+            <div class="row mx-0 mb-0 bg-white">
+                <div class="col-sm-6 ml-2 mt-2">
+                    <div class="font-weight-light">Đặt ngày {{OrderDate}}</div>
+                </div>
+                <div class="col-sm-5 font-weight-light text-right text-nowrap mt-3 ml-3">
+                    <a href="#">Chi tiết</a>
+                </div>
+                <div class="col"></div>
+            </div>
+            <hr/>
+            {{#each item}}
+            <div class="row">
+                <div class="col-3 text-center">
+                    <a href="/product/detail/{{ProID}}">
+                        <img class="img-fluid" src="/img/{{ProID}}/thumbnail.jpg" width="75%" height="75%">
+                    </a>
+                </div>
+                <div class="col-4 mt-5">
+                    <a href="/product/detail/{{ProID}}">{{ProName}}</a>
+                </div>
+                <div class="col-2 mt-5">
+                    <span class="text-right">{{number_format Price}}
+                        <strong>đ</strong>
+                    </span>
+                </div>
+                <div class="col-3 mt-5">
+                    <span class="text-right">Số lượng: {{Amount}}</span>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</div>
