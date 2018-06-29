@@ -95,15 +95,22 @@ router.post('/billpay', (req, res) => {
 					var detail = {
 						orderId: billid,
 						proId: pro.ProID,
+						avai:pro.Quantity-itemsquanti[i],
+						soldup:pro.Sold+itemsquanti[i],
 						quantity: itemsquanti[i],
 						price: pro.Price,
 						sum: pro.Price * itemsquanti[i]
 					}
+					console.log(detail.avai);
 					orderRepo.addbilldetail(detail);
+					orderRepo.upquantity(detail);
+					orderRepo.upsold(detail);
 				}
 			});
         });
-    });
+	});
+
+
     orderRepo.removeall(req.session.cart);
     res.redirect('order');
 });

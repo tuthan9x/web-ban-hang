@@ -21,11 +21,19 @@ exports.single = (OrderId) => {
     });
 }
  exports.addbill =(Order)=>{
-     var sql = `INSERT INTO orders(OrderDate, UserID,Address,Total,Phone) VALUES(NOW(),'${Order.userID}','${Order.address}','${Order.total}','${Order.phone}')`;
+    var sql = `INSERT INTO orders(OrderDate, UserID,Address,Total,Phone) VALUES(NOW(),'${Order.userID}','${Order.address}','${Order.total}','${Order.phone}')`;
      return db.save(sql);
 
 }
+exports.upquantity =(Order)=>{
+    var sql= `UPDATE products SET Quantity = ${Order.avai} WHERE ProID ='${Order.proId}'`;
+    return db.save(sql);
+}
 
+exports.upsold =(Order)=>{
+    var sql= `UPDATE products SET Sold = ${Order.sold} WHERE ProID ='${Order.proId}'`;
+    return db.save(sql);
+}
 exports.addbilldetail = detail => {
     var sql = `INSERT INTO orderdetails(OrderID,ProID,Quantity,Price,Amount) VALUES('${detail.orderId}','${detail.proId}', '${detail.quantity}', '${detail.price}','${detail.sum}')`;
     return db.save(sql);
@@ -36,6 +44,7 @@ exports.getIDBill = userID =>{
     return db.load(sql);
 
 }
+
 
 exports.removeall = (cart) => {
     for (var i = cart.length - 1; i >= 0; i--) {
@@ -54,4 +63,3 @@ exports.add = (cart, item) => {
     }
     cart.push(item);
 }
-
