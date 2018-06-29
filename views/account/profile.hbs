@@ -29,7 +29,6 @@
             if(frmProfile.new_password.value==""){
                 alert('Vui lòng nhập password mới.')
             }
-
             if(frmProfile.new_password.value!=frmProfile.re_new_password.value){
                 alert('Password không trùng khớp')
             }
@@ -91,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./history.html">
+                    <a href="/account/history">
                         <i class="fa fa-history fa-lg" aria-hidden="true"></i>&nbsp;
                         <span>Lịch sử mua hàng</span>
                     </a>
@@ -99,8 +98,6 @@
             </ul>
         </div>
         <div class="col-md-10 pr-5">
-            Thông tin tài khoản
-            <br>
             <form class="pl-3 bg-white pb-3 mb-3" id="frmProfile" action="" method="POST" role="form">
                 <div class="form-row">
                         <div class="form-group col-md-4">
