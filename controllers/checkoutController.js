@@ -68,43 +68,41 @@ router.get('/order', (req, res) => {
 });
 
 router.post('/billpay', (req, res) => {
-    var date = new Date();
     var bill = {
-        name: req.session.user.Name,
-        email: req.session.user.Email,
-        address: req.body.addresss,
+		userID:req.session.user.f_ID,
+        name: req.session.user.f_Name,
+        email: req.session.user.f_Email,
+        address: req.body.address,
         phone: req.body.phone,
         total: req.body.sum,
 	}
-
     var arr_p = [];
     var itemsquanti = [];
    
-    for (var i = 0; i < req.session.cart.length; i++) {
+    for (let i = 0; i < req.session.cart.length; i++) {
         var quan = req.session.cart[i].Quantity;
-        itemsquanti.push(quan);
-    }
+		itemsquanti.push(quan);
+		var p = productRepo.single(req.session.cart[i].ProId);
+        arr_p.push(p);
+	}
 
     orderRepo.addbill(bill).then(row => {
-		orderRepo.getbillid(bill.phone).then(rowid => {
-            var billid = rowid[0].ID;
-            Promise.all([arr_p, itemsquanti]).then(([result, qui]) => {
-                for (var i = result.length - 1; i >= 0; i--) {
-                    var pro = result[i][0];
-                    console.log(result.length);
-                    var detail = {
-                        orderId: billid,
-                        proId: pro.ProID,
-                        quantity: qui[i],
-                        price: pro.Price,
-                        sum: pro.Price * qui[i]
-                    }
-                    console.log(detail);
-                    orderRepo.addbilldetail(detail);
+		orderRepo.getIDBill(bill.userID).then(row => {
+			var billid = row[row.length - 1].ID;
+			Promise.all(arr_p).then(result => {
+				for (var i = result.length - 1; i >= 0; i--) {
+					var pro = result[i];
+					var detail = {
+						orderId: billid,
+						proId: pro.ProID,
+						quantity: itemsquanti[i],
+						price: pro.Price,
+						sum: pro.Price * itemsquanti[i]
+					}
+					orderRepo.addbilldetail(detail);
 				}
 			});
         });
-		console.log(req.body);
     });
     orderRepo.removeall(req.session.cart);
     res.redirect('order');
